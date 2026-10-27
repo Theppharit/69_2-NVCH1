@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>work2-bootstrep</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">ร้านคาเฟ่</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">เมนู</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">ขนมเค้ก</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">เครื่องดื่ม</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">รูปภาพคาเฟ่</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<select class="form-select" aria-label="Default select example">
+  <option selected>เครื่องดื่ม</option>
+  <option value="1">เมนูร้าน</option>
+  <option value="2">เมนูเย็น</option>
+  <option value="3">เมนูปั่น</option>
+</select>
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Tahoma, sans-serif;
+      background: #fffaf3;
+      color: #493629;
+    }
+
+    header {
+      background: #5b4030;
+      color: white;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 25px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 90px 20px;
+      background: linear-gradient(135deg, #f5e5d0, #e7c5a5);
+    }
+
+    .hero h2 {
+      font-size: clamp(32px, 6vw, 48px);
+      margin: 0 0 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #5b4030;
+      color: white;
+      border: none;
+      padding: 13px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 12px;
+    }
+
+    .btn:hover {
+      background: #8b6248;
+    }
+
+    section {
+      padding: 55px 8%;
+      text-align: center;
+    }
+
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit, minmax(210px, 1fr)
+      );
+      gap: 25px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 4px 15px #49362912;
+    }
+
+    .food {
+      font-size: 65px;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .price {
+      color: #a66d42;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .about {
+      background: #f1e3d3;
+      line-height: 1.9;
+    }
+
+    footer {
+      background: #5b4030;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        justify-content: center;
+        text-align: center;
+      }
+
+      nav a {
+        margin: 0 7px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>☕ Little Brew Cafe</h1>
+    <nav>
+      <a href="#home">หน้าแรก</a>
+      <a href="#menu">เมนู</a>
+      <a href="#about">เกี่ยวกับเรา</a>
+      <a href="#contact">ติดต่อ</a>
+    </nav>
+  </header>
+
+  <div class="hero" id="home">
+    <h2>เติมความสุขในทุกแก้ว</h2>
+    <p>
+      กาแฟหอม ๆ ขนมแสนอร่อย<br>
+      พร้อมบรรยากาศอบอุ่นที่คุณจะหลงรัก
+    </p>
+    <a class="btn" href="#menu">ดูเมนูของเรา</a>
+  </div>
+
+  <section id="menu">
+    <h2>เมนูยอดนิยม ☕</h2>
+    <p>คัดสรรความอร่อยเพื่อวันดี ๆ ของคุณ</p>
+
+    <div class="menu">
+      <div class="card">
+        <div class="food">☕</div>
+        <h3>อเมริกาโน่</h3>
+        <p>กาแฟเข้ม หอมละมุน</p>
+        <div class="price">฿60</div>
+        <button class="btn"
+          onclick="order('อเมริกาโน่',60)">
+          สั่งเมนูนี้
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="food">🥛</div>
+        <h3>ลาเต้เย็น</h3>
+        <p>กาแฟนมรสชาติกลมกล่อม</p>
+        <div class="price">฿70</div>
+        <button class="btn"
+          onclick="order('ลาเต้เย็น',70)">
+          สั่งเมนูนี้
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="food">🍵</div>
+        <h3>มัทฉะลาเต้</h3>
+        <p>ชาเขียวหอม เข้มข้น</p>
+        <div class="price">฿75</div>
+        <button class="btn"
+          onclick="order('มัทฉะลาเต้',75)">
+          สั่งเมนูนี้
+        </button>
+      </div>
+
+      <div class="card">
+        <div class="food">🥐</div>
+        <h3>ครัวซองต์</h3>
+        <p>กรอบนอก นุ่มใน หอมเนย</p>
+        <div class="price">฿55</div>
+        <button class="btn"
+          onclick="order('ครัวซองต์',55)">
+          สั่งเมนูนี้
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2>เกี่ยวกับ Little Brew Cafe</h2>
+    <p>
+      เราเชื่อว่ากาแฟดี ๆ สักแก้วสามารถทำให้วันธรรมดา
+      กลายเป็นวันพิเศษได้<br>
+      แวะมาพักผ่อน เติมพลัง และสร้างความทรงจำดี ๆ
+      ไปด้วยกันกับเรา
+    </p>
+  </section>
+
+</body>
+</html>
+

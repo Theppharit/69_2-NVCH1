@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>เที่ยวทั่วไทย ไปด้วยกัน</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Tahoma, sans-serif;
+      background: #f5f8f5;
+      color: #263b32;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #164e41;
+      color: white;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    header h2 {
+      color: #f6d99b;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+    }
+
+    nav a:hover {
+      color: #f6d99b;
+    }
+
+    .hero {
+      min-height: 440px;
+      padding: 80px 8%;
+      display: flex;
+      align-items: center;
+      color: white;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.7), rgba(0,0,0,.1)),
+        url("https://images.unsplash.com/photo-1504214208698-ea1916a2195a?auto=format&fit=crop&w=1600&q=85")
+        center/cover;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 52px);
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #f6d99b;
+      color: #164e41;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 55px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-title h2 {
+      color: #164e41;
+      font-size: 30px;
+    }
+
+    .search-box {
+      display: flex;
+      gap: 10px;
+      max-width: 550px;
+      margin: 0 auto 30px;
+    }
+
+    .search-box input {
+      flex: 1;
+      min-width: 0;
+      padding: 13px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 14px #00000012;
+      transition: transform .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card h3 {
+      color: #164e41;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    .about {
+      background: #e5efe8;
+      text-align: center;
+    }
+
+    .about p {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    footer {
+      background: #164e41;
+      color: white;
+      text-align: center;
+      padding: 22px;
+    }
+
+    .empty {
+      text-align: center;
+      grid-column: 1 / -1;
+      padding: 25px;
+    }
+
+    @media (max-width: 800px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 550px) {
+      header {
+        flex-direction: column;
+      }
+
+      nav a {
+        margin: 0 6px;
+        font-size: 14px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 60px 7%;
+      }
+
+      section {
+        padding: 40px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h2>🌿 เที่ยวทั่วไทย</h2>
+    <nav>
+      <a href="#home">หน้าแรก</a>
+      <a href="#places">สถานที่ท่องเที่ยว</a>
+      <a href="#about">เกี่ยวกับเรา</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <h1>ออกไปค้นพบโลกใบใหม่</h1>
+        <p>สัมผัสธรรมชาติ เปิดประสบการณ์ใหม่<br>
+          แล้วออกเดินทางไปด้วยกัน</p>
+        <a href="#places" class="btn">ค้นหาที่เที่ยว</a>
+      </div>
+    </section>
+
+    <section id="places">
+      <div class="section-title">
+        <h2>🏞️ สถานที่ท่องเที่ยวยอดนิยม</h2>
+        <p>เลือกจุดหมายปลายทางสำหรับการเดินทางครั้งต่อไป</p>
+      </div>
+
+      <div class="search-box">
+        <input type="text" id="search"
+          placeholder="ค้นหาสถานที่ท่องเที่ยว..."
+          aria-label="ค้นหาสถานที่ท่องเที่ยว">
+        <button class="btn" onclick="searchPlaces()">ค้นหา</button>
+      </div>
+
+      <div class="cards" id="cards">
+
+        <article class="card" data-name="เชียงใหม่ ภูเขา ธรรมชาติ">
+          <img src="https://images.unsplash.com/photo-1512553353614-82a7370096dc?auto=format&fit=crop&w=800&q=80"
+               alt="ภูเขาและธรรมชาติ">
+          <div class="card-content">
+            <h3>🌄 เชียงใหม่</h3>
+            <p>ชมวิวภูเขา สัมผัสอากาศเย็น
+              และเรียนรู้วิถีชีวิตท้องถิ่น</p>
+            <a class="btn"
+               href="https://www.google.com/search?q=สถานที่ท่องเที่ยวเชียงใหม่"
+               target="_blank" rel="noopener noreferrer">ดูรายละเอียด</a>
+          </div>
+        </article>
+
+        <article class="card" data-name="ภูเก็ต ทะเล ชายหาด">
+          <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80"
+               alt="ทะเลและชายหาด">
+          <div class="card-content">
+            <h3>🏖️ ภูเก็ต</h3>
+            <p>พักผ่อนริมทะเล น้ำใส หาดทรายสวย
+              และกิจกรรมทางน้ำ</p>
+            <a class="btn"
+               href="https://www.google.com/search?q=สถานที่ท่องเที่ยวภูเก็ต"
+               target="_blank" rel="noopener noreferrer">ดูรายละเอียด</a>
+          </div>
+        </article>
+
+        <article class="card" data-name="นครราชสีมา โคราช เขาใหญ่">
+          <img src="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=800&q=80"
+               alt="ธรรมชาติและสัตว์ป่า">
+          <div class="card-content">
+            <h3>🌳 เขาใหญ่</h3>
+            <p>เที่ยวชมผืนป่า สูดอากาศบริสุทธิ์
+              และใกล้ชิดธรรมชาติ</p>
+            <a class="btn"
+               href="https://www.google.com/search?q=สถานที่ท่องเที่ยวเขาใหญ่"
+               target="_blank" rel="noopener noreferrer">ดูรายละเอียด</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="section-title">
+        <h2>เกี่ยวกับเว็บไซต์ของเรา</h2>
+      </div>
+      <p>
+        เที่ยวทั่วไทย ไปด้วยกัน เป็นเว็บไซต์แนะนำสถานที่ท่องเที่ยว
+        ที่รวบรวมจุดหมายปลายทางที่น่าสนใจ
+        เพื่อช่วยให้ทุกคนค้นพบสถานที่ใหม่ ๆ
+        วางแผนการเดินทาง และสร้างความทรงจำที่ดี
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 เที่ยวทั่วไทย ไปด้วยกัน</p>
+    <p>เดินทางอย่างมีความสุข และช่วยกันรักษาธรรมชาติ 💚</p>
+  </footer>
+
+  <script>
+    function searchPlaces() {
+      const keyword = document
+        .getElementById("search")
+        .value.trim().toLowerCase();
+
+      const cards = document.querySelectorAll(".card");
+      let found = 0;
+
+      cards.forEach(card => {
+        const name = card.dataset.name.toLowerCase();
+        const match = name.includes(keyword);
+
+        card.style.display = match ? "" : "none";
+
+        if (match) found++;
+      });
+
+      const oldMessage = document.querySelector(".empty");
+      if (oldMessage) oldMessage.remove();
+
+      if (found === 0) {
+        const message = document.createElement("p");
+        message.className = "empty";
+        message.textContent = "ไม่พบสถานที่ท่องเที่ยวที่ค้นหา";
+        document.getElementById("cards").appendChild(message);
+      }
+    }
+
+    document.getElementById("search").addEventListener("keydown", event => {
+      if (event.key === "Enter") searchPlaces();
+    });
+  </script>
+
+</body>
+</html>
