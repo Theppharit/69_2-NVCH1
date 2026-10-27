@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ดาวน์โหลดรูปภาพ</title>
+	<style>
+		* { box-sizing: border-box; }
+		body { margin: 0; font-family: system-ui, sans-serif; color: #243047; background: #f4f6fb; }
+		nav { height: 68px; padding: 0 6%; display: flex; align-items: center; justify-content: space-between; background: white; box-shadow: 0 2px 14px #202c4610; }
+		.brand { color: #5268e8; font-weight: 750; font-size: 19px; text-decoration: none; }
+		.menu { position: relative; }
+		.menu-button { border: 0; padding: 11px 14px; border-radius: 8px; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+		.menu-button:hover, .menu-button:focus-visible { background: #f0f2ff; }
+		.dropdown { display: none; position: absolute; z-index: 2; top: calc(100% + 5px); right: 0; min-width: 220px; padding: 7px; border: 1px solid #e5e8f0; border-radius: 11px; background: white; box-shadow: 0 12px 30px #202c4620; }
+		.menu.open .dropdown { display: block; }
+		.dropdown a { display: block; padding: 11px 12px; border-radius: 7px; color: inherit; text-decoration: none; }
+		.dropdown a:hover { background: #f0f2ff; color: #536ae9; }
+		main { width: min(720px, calc(100% - 32px)); margin: 54px auto; }
+		header { margin-bottom: 26px; text-align: center; }
+		h1 { margin: 0 0 9px; font-size: clamp(28px, 5vw, 40px); }
+		header p { margin: 0; color: #69758a; }
+		.card { padding: clamp(20px, 5vw, 36px); border: 1px solid #e8ebf2; border-radius: 17px; background: white; box-shadow: 0 12px 36px #2430470b; }
+		.dropzone { min-height: 205px; padding: 28px; display: grid; place-items: center; border: 2px dashed #cbd2e5; border-radius: 13px; text-align: center; cursor: pointer; }
+		.dropzone:hover, .dropzone.dragover { border-color: #5268e8; background: #f7f8ff; }
+		.icon { display: block; margin-bottom: 8px; font-size: 40px; }
+		.dropzone strong { display: block; font-size: 17px; }
+		.hint { display: block; margin-top: 7px; color: #69758a; font-size: 14px; }
+		#fileInput { position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0; }
+		.preview { display: none; margin-top: 22px; }
+		.preview img { display: block; max-width: 100%; max-height: 420px; margin: auto; border-radius: 9px; }
+		.file-info { color: #69758a; text-align: center; overflow-wrap: anywhere; font-size: 14px; }
+		.actions { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+		.button { padding: 10px 17px; border: 0; border-radius: 8px; font: inherit; font-weight: 650; cursor: pointer; text-decoration: none; }
+		.primary { color: white; background: #5268e8; }
+		.primary:hover { background: #4055d2; }
+		.secondary { color: #243047; background: #edf0f7; }
+		#status { min-height: 20px; margin: 13px 0 0; color: #b42318; text-align: center; font-size: 14px; }
+		footer { margin: 0 16px 28px; color: #69758a; text-align: center; font-size: 13px; }
+	</style>
+</head>
+<body>
+	<nav aria-label="เมนูหลัก">
+		<a class="brand" href="#">Image Downloader</a>
+		<div class="menu" id="menu">
+			<button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-haspopup="true">เมนู ▾</button>
+			<div class="dropdown">
+				<a href="file:///C:/xampp/htdocs/69_2-NVCH1/18-Natthanan/work1-bootstrap.html">ไปยังหน้า Work 1</a>
+			</div>
+		</div>
+	</nav>
+	<main>
+		<header>
+			<h1>ดาวน์โหลดรูปภาพ</h1>
+			<p>เลือกรูปภาพจากอุปกรณ์เพื่อดูตัวอย่างและดาวน์โหลด</p>
+		</header>
+		<section class="card" aria-label="เลือกและดาวน์โหลดรูปภาพ">
+			<label class="dropzone" id="dropzone" for="fileInput">
+				<span><span class="icon" aria-hidden="true">🖼️</span><strong>คลิกเพื่อเลือกรูปภาพ</strong><span class="hint">หรือวางรูปภาพที่นี่ · JPG, PNG, GIF, WebP</span></span>
+			</label>
+			<input id="fileInput" type="file" accept="image/*">
+			<div class="preview" id="preview">
+				<img id="imagePreview" alt="ตัวอย่างรูปภาพที่เลือก">
+				<p class="file-info" id="fileInfo"></p>
+				<div class="actions">
+					<a class="button primary" id="downloadButton" download>ดาวน์โหลดรูปภาพ</a>
+					<button class="button secondary" id="chooseAgain" type="button">เลือกรูปอื่น</button>
+				</div>
+			</div>
+			<p id="status" role="status" aria-live="polite"></p>
+		</section>
+	</main>
+	<footer>รูปภาพจะถูกจัดการภายในเบราว์เซอร์ของคุณ</footer>
+	<script>
+		const input = document.getElementById('fileInput');
+		const zone = document.getElementById('dropzone');
+		const preview = document.getElementById('preview');
+		const status = document.getElementById('status');
+		let currentUrl = '';
+
+		function loadImage(file) {
+			status.textContent = '';
+			if (!file) return;
+			if (!file.type.startsWith('image/')) {
+				status.textContent = 'กรุณาเลือกไฟล์รูปภาพ';
+				return;
+			}
+			if (currentUrl) URL.revokeObjectURL(currentUrl);
+			currentUrl = URL.createObjectURL(file);
+			document.getElementById('imagePreview').src = currentUrl;
+			const download = document.getElementById('downloadButton');
+			download.href = currentUrl;
+			download.download = file.name || 'image';
+			document.getElementById('fileInfo').textContent = `${file.name} · ${(file.size / 1024).toFixed(1)} KB`;
+			preview.style.display = 'block';
+		}
+
+		input.addEventListener('change', () => loadImage(input.files[0]));
+		document.getElementById('chooseAgain').addEventListener('click', () => input.click());
+		['dragenter', 'dragover'].forEach(type => zone.addEventListener(type, event => {
+			event.preventDefault(); zone.classList.add('dragover');
+		}));
+		['dragleave', 'drop'].forEach(type => zone.addEventListener(type, event => {
+			event.preventDefault(); zone.classList.remove('dragover');
+		}));
+		zone.addEventListener('drop', event => loadImage(event.dataTransfer.files[0]));
+
+		const menu = document.getElementById('menu');
+		const menuButton = document.getElementById('menuButton');
+		menuButton.addEventListener('click', () => {
+			const open = menu.classList.toggle('open');
+			menuButton.setAttribute('aria-expanded', String(open));
+		});
+		document.addEventListener('click', event => {
+			if (!menu.contains(event.target)) {
+				menu.classList.remove('open');
+				menuButton.setAttribute('aria-expanded', 'false');
+			}
+		});
+	</script>
+</body>
+</html>
