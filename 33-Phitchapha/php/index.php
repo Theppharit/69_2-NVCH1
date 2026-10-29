@@ -12,7 +12,7 @@
 
 <?php include 'include/navdar.php'; ?>
 
-
+<img src="c:\Users\Vitaya3.1-10\Downloads\large.jpe" class="img-fluid" alt="...">
 
 <div class=""></div>
 <div class=""></div>
