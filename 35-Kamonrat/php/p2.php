@@ -30,6 +30,13 @@
     <div class=""></div>
 </footer>
 </body>
+ 
+<?php
+session_start();
+?>
+
+</body>
+</html>
 
 
 
