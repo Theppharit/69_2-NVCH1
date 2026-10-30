@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <?php include 'include/head.php'; ?>
 
 <body>
@@ -8,7 +5,12 @@
 <?php include 'include/navbar.php'; ?>
 
 <section>
-    <h1 class="display-1 text-center m-5">ยินดีต้อนรับสู่เว็บไซต์ของเรา</h1>
+
+<?php while ($row = $result_d->fetch_assoc()) { ?>
+
+    <h1 class="display-1 text-center m-5"><?php echo $row['d_title']; ?></h1>
+
+<?php } ?>
 
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
@@ -18,13 +20,13 @@
   </div>
   <div class="carousel-inner w-50 m-auto">
     <div class="carousel-item active">
-      <img src="img/1.jpg" class="d-block w-100" alt="...">
+      <img src="img/11.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="img/2.jpg" class="d-block w-100" alt="...">
+      <img src="img/12.jpg" class="d-block w-100" alt="...">
     </div>
     <div class="carousel-item">
-      <img src="img/3.jpg" class="d-block w-100" alt="...">
+      <img src="img/13.jpg" class="d-block w-100" alt="...">
     </div>
   </div>
 
