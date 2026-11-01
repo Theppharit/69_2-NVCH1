@@ -1,8 +1,8 @@
 <?php include 'include/head.php';
 
-if (isset($_POST['username'])) {
+if (isset($_POST['u_user'])) {
     foreach ($users as $u) {
-        if ($u['u_user'] == $_POST['username'] && $u['password'] == $_POST['password']) {
+        if ($u['u_user'] == $_POST['u_user'] && $u['u_pass'] == $_POST['u_pass']) {
             $_SESSION['u_id'] = $u['u_id'];
             if ($u['u_role'] == 'admin') header("Location: admin/admin.php");
             else header("Location: index.php");
@@ -19,8 +19,8 @@ if (isset($_POST['username'])) {
 <?php if (isset($err)) echo "<div class='alert alert-danger'>$err</div>" ?>
 
 <form action="" method="post">
-    <input type="text" name="username" placeholder="กรุณากรอกชื่อผู้ใช้" required>
-    <input type="password" name="password" placeholder="กรุณากรอกรหัสผ่าน" required>
+    <input type="text" name="u_user" placeholder="กรุณากรอกชื่อผู้ใช้" required>
+    <input type="password" name="u_pass" placeholder="กรุณากรอกรหัสผ่าน" required>
     <button type="submit">เข้าสู่ระบบ</button>
 </form>
 
