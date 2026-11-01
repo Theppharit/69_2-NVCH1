@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <?php include 'include/head.php'; ?>
 
 <body>
@@ -8,9 +5,16 @@
 <?php include 'include/navbar.php'; ?>
 
 <section>
-    <h1 class="display-1 text-center m-5">ยินดีต้อนรับสู่เว็บไซต์ของเรา</h1>
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+<?php while ($row = $result_d->fetch_assoc()) { ?>
+    
+   <h1 class="display-1 text-center m-5"><?php echo $row['d_title']; ?></h1>
+
+<?php } ?>
+
+    
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>

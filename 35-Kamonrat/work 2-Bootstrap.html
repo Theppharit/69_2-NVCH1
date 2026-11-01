@@ -12,90 +12,218 @@
 
 
 <body>
-   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="work 1-Boostrap.html">work 2</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="work 2-Bootstrap.html">หน้าหลัก</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">ธรรมชาติ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">เกี่ยวกับเรา</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           เมนู
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">บริการ</a></li>
-            <li><a class="dropdown-item" href="#">ข้อมูลเพิ่มเติม</a></li>
-          </ul>
-        </li>
-      </ul>
+   
+<!DOCTYPE html>
+<html lang="th">
+
+
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Green World 🌿</title>
+
+<style>
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{margin:0;font-family:Tahoma,sans-serif;background:#f6faf4;color:#234638}
+header{background:white;padding:18px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+.logo{font-size:25px;font-weight:bold;color:#176341}
+nav{display:flex;gap:16px;flex-wrap:wrap}
+a{color:#216744;text-decoration:none}
+nav a:hover{color:#80ad66}
+.hero{padding:90px 8%;color:white;background:linear-gradient(90deg,#174c36dd,#174c3620),url('https://images.unsplash.com/photo-1448375240586-882707db888b') center/cover}
+.hero h1{font-size:clamp(32px,5vw,55px);margin:0 0 12px}
+button,.btn{background:#176341;color:white;border:0;padding:11px 20px;border-radius:25px;cursor:pointer;display:inline-block}
+button:hover,.btn:hover{background:#439362}
+section{padding:40px 6%}
+h2{text-align:center;color:#176341}
+.sub{text-align:center;color:#718779;margin-bottom:25px}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.card{background:white;border-radius:18px;overflow:hidden;box-shadow:0 4px 15px #23463812;padding-bottom:18px;transition:.2s}
+.card:hover{transform:translateY(-4px)}
+.card img{width:100%;height:150px;object-fit:cover}
+.card h3,.card p{margin:12px 16px}
+.card p{font-size:14px;line-height:1.7;color:#687a6e}
+.card button{margin-left:16px}
+.activities{background:#eaf4e6}
+.panel{background:white;border-radius:18px;padding:22px;max-width:600px;margin:20px auto;box-shadow:0 4px 15px #23463812}
+input{width:100%;padding:12px;margin:7px 0 14px;border:1px solid #d5e4d4;border-radius:10px;font-size:15px}
+label{font-size:14px}
+#message{color:#28764a;line-height:1.8}
+footer{background:#123f2d;color:white;text-align:center;padding:30px 15px;line-height:2}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:500px){header{justify-content:center}nav{justify-content:center;gap:12px}.grid{grid-template-columns:1fr}.hero{padding:65px 7%}}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🌿 Green World</div>
+  <nav>
+    <a href="#home">หน้าหลัก</a>
+    <a href="#content">บทความ</a>
+    <a href="#activities">กิจกรรม</a>
+    <a href="#register">สมัครสมาชิก</a>
+    <a href="#contact">ติดต่อเรา</a>
+  </nav>
+</header>
+
+<div class="hero" id="home">
+  <h1>ร่วมกันสร้าง<br>โลกสีเขียว 🌍</h1>
+  <p>เปลี่ยนสิ่งเล็ก ๆ ในทุกวัน เพื่อโลกที่น่าอยู่กว่าเดิม</p>
+  <a class="btn" href="#content">สำรวจธรรมชาติ →</a>
+</div>
+
+<section id="content">
+  <h2>🌱 เรียนรู้เกี่ยวกับธรรมชาติ</h2>
+  <p class="sub">ค้นพบวิธีดูแลโลกไปด้วยกัน</p>
+
+  <div class="grid">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e" alt="ป่าไม้">
+      <h3>🌳 ป่าไม้</h3>
+      <p>เรียนรู้ความสำคัญของป่าและการอนุรักษ์ธรรมชาติ</p>
+      <a class="btn" href="#activities" style="margin-left:16px">อ่านเพิ่มเติม</a>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2" alt="แหล่งน้ำ">
+      <h3>💧 แหล่งน้ำ</h3>
+      <p>ใช้น้ำอย่างประหยัดและช่วยกันรักษาแหล่งน้ำ</p>
+      <a class="btn" href="#activities" style="margin-left:16px">อ่านเพิ่มเติม</a>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b" alt="ปลูกต้นไม้">
+      <h3>🌱 ปลูกต้นไม้</h3>
+      <p>เพิ่มพื้นที่สีเขียวและสร้างสิ่งแวดล้อมที่ดี</p>
+      <a class="btn" href="#activities" style="margin-left:16px">อ่านเพิ่มเติม</a>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b" alt="รีไซเคิล">
+      <h3>♻️ รีไซเคิล</h3>
+      <p>คัดแยกขยะและนำสิ่งของกลับมาใช้ใหม่</p>
+      <a class="btn" href="#activities" style="margin-left:16px">อ่านเพิ่มเติม</a>
     </div>
   </div>
-</nav>
+</section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<section class="activities" id="activities">
+  <h2>🎯 กิจกรรมรักษ์โลก</h2>
+  <p class="sub">ร่วมสนุกและเริ่มต้นเปลี่ยนแปลงโลก</p>
 
-<!-- Content -->
-    <div class="content">
-        <h1>เรียนรู้เกี่ยวกับธรรมชาติ 🌱</h1>
-    <p>ธรรมชาติสวยงามเริ่มต้นดูแลโลกได้จากตัวเรา</p>
-
-        <div class="cards">
-    <!-- Card 1 -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=600"
-                     alt="ป่าไม้">
-                <div class="card-body">
-                    <h3>🌳 ป่าไม้</h3>
-                    <p>
-                        ป่าไม้เป็นแหล่งที่อยู่อาศัยของสัตว์
-                        ช่วยผลิตออกซิเจนและรักษาสมดุลธรรมชาติ
-                    </p>
-                    <button>อ่านเพิ่มเติม</button>
-                </div>
-            </div>
-            <!-- Card 2 -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1437482078695-73f5ca6c96e2?w=600"
-                     alt="น้ำตกและแหล่งน้ำ">
-                <div class="card-body">
-                    <h3>💧 แหล่งน้ำ</h3>
-                    <p>
-                        น้ำมีความสำคัญต่อสิ่งมีชีวิต
-                        เราจึงควรประหยัดน้ำและไม่ทิ้งขยะลงแม่น้ำ
-                    </p>
-                    <button>อ่านเพิ่มเติม</button>
-                </div>
-            </div>
-<!-- Card 3 -->
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=600"
-                     alt="ทุ่งหญ้าและธรรมชาติ">
-                <div class="card-body">
-                    <h3>🌿 สิ่งแวดล้อม</h3>
-                    <p>
-                        การปลูกต้นไม้ ลดขยะ และแยกขยะ
-                        เป็นวิธีง่าย ๆ ที่ช่วยดูแลโลกของเรา
-                    </p>
-                    <button>อ่านเพิ่มเติม</button>
-                </div>
-            </div>
-
-        </div>
+  <div class="grid">
+    <div class="card" style="padding-top:20px">
+      <h3>🌿 Daily Challenge</h3>
+      <p>ภารกิจวันนี้: พกแก้วน้ำส่วนตัว</p>
+      <button onclick="challenge()">ทำภารกิจสำเร็จ</button>
+      <p id="points">คะแนน: 0 ใบไม้</p>
     </div>
-<!-- Footer -->
-    <footer>
-        <p>🌿 Green World | ร่วมกันรักษาโลกสีเขียว</p>
-    </footer>
+
+    <div class="card" style="padding-top:20px">
+      <h3>🌍 Green Quiz</h3>
+      <p>ขยะพลาสติกควรทำอย่างไร?</p>
+      <button onclick="quiz(true)">คัดแยกรีไซเคิล</button>
+      <button onclick="quiz(false)" style="margin-top:8px">ทิ้งลงแม่น้ำ</button>
+      <p id="answer">เลือกคำตอบได้เลย</p>
+    </div>
+
+    <div class="card" style="padding-top:20px">
+      <h3>🌳 Green Community</h3>
+      <p>ชวนเพื่อนปลูกต้นไม้และเก็บขยะ</p>
+      <button onclick="community()">เข้าร่วมกิจกรรม</button>
+      <p id="community"></p>
+    </div>
+
+    <div class="card" style="padding-top:20px">
+      <h3>🏆 Eco Points</h3>
+      <p>สะสมคะแนนจากภารกิจเพื่อเป็นฮีโร่รักษ์โลก</p>
+      <p>🌱 ทุกการกระทำเล็ก ๆ มีความหมาย</p>
+    </div>
+  </div>
+</section>
+
+<section id="register">
+  <h2>💚 สมัครสมาชิก Green World</h2>
+  <p class="sub">เข้าร่วมชุมชนคนรักธรรมชาติ</p>
+
+  <form class="panel" onsubmit="register(event)">
+    <label for="name">ชื่อสมาชิก</label>
+    <input id="name" required placeholder="กรอกชื่อของคุณ">
+
+    <label for="email">อีเมล</label>
+    <input id="email" type="email" required placeholder="example@email.com">
+
+    <label for="password">รหัสผ่าน</label>
+    <input id="password" type="password" minlength="8" required placeholder="อย่างน้อย 8 ตัวอักษร">
+
+    <button type="submit" style="width:100%">สมัครสมาชิก 🌱</button>
+    <p id="message"></p>
+  </form>
+</section>
+
+<footer id="contact">
+  <h2 style="color:white">🌿 Green World</h2>
+  <p>โลกสีเขียว เริ่มต้นได้จากเรา</p>
+  <p>หน้าหลัก | บทความ | กิจกรรม | ติดต่อเรา</p>
+  <p>Email: greenworld@example.com</p>
+  <small>© 2026 Green World. All Rights Reserved.</small>
+</footer>
+
+<script>
+let score = 0;
+let done = false;
+let answered = false;
+
+function challenge(){
+  if(done){
+    document.getElementById('points').textContent =
+      'ทำภารกิจนี้แล้ว 🌱';
+    return;
+  }
+  done = true;
+  score += 10;
+  document.getElementById('points').textContent =
+    'คะแนน: ' + score + ' ใบไม้ 🎉';
+}
+
+function quiz(correct){
+  if(answered) return;
+  answered = true;
+  document.getElementById('answer').textContent =
+    correct ? 'ถูกต้อง! เก่งมาก 💚' :
+    'ยังไม่ถูกค่ะ ควรคัดแยกเพื่อนำไปรีไซเคิล';
+}
+
+function community(){
+  document.getElementById('community').textContent =
+    '🌳 เริ่มจากชวนเพื่อนปลูกต้นไม้ได้เลย!';
+}
+
+function register(event){
+  event.preventDefault();
+
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+
+  if(!name || !email) return;
+
+  document.getElementById('message').textContent =
+    'ยินดีต้อนรับคุณ ' + name +
+    ' 💚 ตัวอย่างการสมัครสมาชิกสำเร็จ!';
+
+  event.target.reset();
+}
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
+
+
+</body>
+</html>
 
