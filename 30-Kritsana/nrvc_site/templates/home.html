@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="relative bg-ink text-white overflow-hidden" aria-label="แบนเนอร์">
+  <div id="slides">
+  {% for b in banners %}
+    <div class="slide {% if not forloop.first %}hidden{% endif %} relative h-[360px] sm:h-[460px]">
+      {% if b.image %}<img src="{{ b.image.url }}" alt="" class="absolute inset-0 w-full h-full object-cover opacity-60">{% endif %}
+      <div class="relative max-w-6xl mx-auto px-4 h-full flex flex-col justify-center">
+        <h1 class="font-head font-bold text-3xl sm:text-5xl max-w-2xl leading-tight">{{ b.title }}</h1>
+        {% if b.subtitle %}<p class="mt-4 text-lg text-slate-200 max-w-xl">{{ b.subtitle }}</p>{% endif %}
+        {% if b.link %}<a href="{{ b.link }}" class="mt-6 self-start bg-brand px-6 py-3 font-medium rounded">ดูรายละเอียด</a>{% endif %}
+      </div>
+    </div>
+  {% empty %}
+    <div class="h-[360px] sm:h-[460px] max-w-6xl mx-auto px-4 flex flex-col justify-center">
+      <h1 class="font-head font-bold text-3xl sm:text-5xl">{{ site.name_th }}</h1>
+      <p class="mt-4 text-lg text-slate-200">{{ site.tagline }}</p>
+    </div>
+  {% endfor %}
+  </div>
+  {% if banners|length > 1 %}
+  <div class="absolute bottom-16 right-4 flex gap-2">
+    <button id="prev" class="bg-white/20 hover:bg-white/40 w-10 h-10 rounded" aria-label="ก่อนหน้า">‹</button>
+    <button id="next" class="bg-white/20 hover:bg-white/40 w-10 h-10 rounded" aria-label="ถัดไป">›</button>
+  </div>{% endif %}
+</section>
+
+<section class="max-w-6xl mx-auto px-4 -mt-10 relative z-10">
+  <ul class="grid grid-cols-2 md:grid-cols-4 bg-white shadow-lg border-t-4 border-brand">
+    {% for q in quick_links %}
+    <li><a href="{{ q.url }}" class="flex flex-col items-center gap-1 py-6 hover:bg-paper font-head font-medium text-ink">
+      <span class="text-3xl">{{ q.icon }}</span>{{ q.title }}</a></li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="max-w-6xl mx-auto px-4 mt-14">
+  <div class="flex items-end justify-between mb-5">
+    <h2 class="font-head text-2xl font-semibold text-ink">ข่าวสารล่าสุด</h2>
+    <a href="{% url 'news_list' %}" class="text-brand font-medium">ข่าวทั้งหมด</a>
+  </div>
+  {% if top_news %}
+  <div class="grid gap-5 lg:grid-cols-2">
+    {% for n in top_news %}{% include "_news_card.html" %}{% endfor %}
+    <div class="grid gap-5 sm:grid-cols-2">{% for n in news|slice:":4" %}{% include "_news_card.html" %}{% endfor %}</div>
+  </div>
+  {% else %}<p class="text-slate-500">ยังไม่มีข่าว เพิ่มได้ที่หน้าแอดมิน</p>{% endif %}
+</section>
+
+<section class="max-w-6xl mx-auto px-4 mt-14 grid gap-10 lg:grid-cols-3">
+  <div>
+    <h2 class="font-head text-2xl font-semibold text-ink mb-4">ประกาศ</h2>
+    <ul class="divide-y border-y">
+      {% for a in announcements %}
+      <li class="py-3"><a href="{{ a.url|default:'#' }}" class="hover:text-brand">{{ a.title }}</a>
+        <p class="text-sm text-slate-500">{{ a.date|date:"j F Y" }}</p></li>
+      {% empty %}<li class="py-3 text-slate-500">ยังไม่มีประกาศ</li>{% endfor %}
+    </ul>
+  </div>
+  <div class="lg:col-span-2">
+    <h2 class="font-head text-2xl font-semibold text-ink mb-4">แผนกวิชา</h2>
+    <ul class="grid sm:grid-cols-2 gap-3">
+      {% for d in departments %}
+      <li class="bg-paper border-l-4 border-brand px-4 py-4"><a href="{% url 'departments' %}" class="font-head font-medium text-ink hover:text-brand">{{ d.name }}</a></li>
+      {% empty %}<li class="text-slate-500">ยังไม่มีข้อมูลแผนกวิชา</li>{% endfor %}
+    </ul>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function(){
+  var s=[].slice.call(document.querySelectorAll('.slide')); if(s.length<2) return;
+  var i=0, reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches, t;
+  function go(n){s[i].classList.add('hidden'); i=(n+s.length)%s.length; s[i].classList.remove('hidden');}
+  function auto(){ if(!reduce){clearInterval(t); t=setInterval(function(){go(i+1)},6000);} }
+  document.getElementById('next').onclick=function(){go(i+1);auto()};
+  document.getElementById('prev').onclick=function(){go(i-1);auto()};
+  auto();
+})();
+</script>
+{% endblock %}

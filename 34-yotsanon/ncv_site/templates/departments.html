@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}แผนกวิชา | {{ site.name_th }}{% endblock %}
+
+{% block content %}
+<section class="bg-brand-700 text-white">
+  <div class="max-w-7xl mx-auto px-4 py-10">
+    <h1 class="text-3xl font-bold">แผนกวิชา</h1>
+    <p class="mt-1 text-brand-100">สาขาวิชาชีพที่เปิดสอนในวิทยาลัย</p>
+  </div>
+</section>
+<div class="max-w-7xl mx-auto px-4 pt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  {% for d in departments %}
+  <a href="{{ d.get_absolute_url }}" class="group overflow-hidden rounded-xl bg-white ring-1 ring-slate-200 hover:shadow-md hover:ring-brand-500 transition">
+    <div class="h-40 bg-gradient-to-br from-brand-500 to-brand-800 grid place-items-center overflow-hidden">
+      {% if d.image %}<img src="{{ d.image.url }}" alt="{{ d.name }}" class="h-full w-full object-cover">{% else %}<span class="text-6xl">{{ d.icon }}</span>{% endif %}
+    </div>
+    <div class="p-5">
+      <h2 class="text-lg font-bold text-brand-800 group-hover:text-brand-600">{{ d.name }}</h2>
+      {% if d.summary %}<p class="mt-1 text-sm text-slate-600">{{ d.summary }}</p>{% endif %}
+    </div>
+  </a>
+  {% empty %}
+  <p class="text-slate-500">ยังไม่มีข้อมูลแผนกวิชา</p>
+  {% endfor %}
+</div>
+{% endblock %}

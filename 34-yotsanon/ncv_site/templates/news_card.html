@@ -1,0 +1,14 @@
+{% load core_extras %}
+<a href="{{ n.get_absolute_url }}" class="group block overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-slate-200 hover:shadow-md transition">
+  <div class="aspect-[16/10] bg-gradient-to-br from-brand-500 to-brand-800 overflow-hidden">
+    {% if n.cover %}<img src="{{ n.cover.url }}" alt="{{ n.title }}" class="h-full w-full object-cover group-hover:scale-105 transition duration-500">{% endif %}
+  </div>
+  <div class="p-4">
+    <div class="flex items-center gap-2 text-xs text-slate-500">
+      {% if n.category %}<span class="rounded bg-accent-400/30 px-2 py-0.5 font-semibold text-accent-600">{{ n.category.name }}</span>{% endif %}
+      <span>{{ n.published_at|thai_date }}</span>
+    </div>
+    <h3 class="mt-2 font-semibold text-brand-800 group-hover:text-brand-600 line-clamp-2">{{ n.title }}</h3>
+    {% if n.summary %}<p class="mt-1 text-sm text-slate-600 line-clamp-2">{{ n.summary }}</p>{% endif %}
+  </div>
+</a>
