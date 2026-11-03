@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load core_extras %}
+{% block title %}{{ item.title }} | {{ site.name_th }}{% endblock %}
+{% block description %}{{ item.summary|default:item.title }}{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto px-4 pt-8">
+  <nav class="text-sm text-slate-500 mb-4">
+    <a href="{% url 'home' %}" class="hover:underline">หน้าแรก</a> ›
+    <a href="{% url 'news_list' %}" class="hover:underline">ข่าวประชาสัมพันธ์</a>
+  </nav>
+  <article class="rounded-2xl bg-white p-6 sm:p-10 shadow-sm ring-1 ring-slate-200">
+    <div class="flex items-center gap-3 text-sm text-slate-500">
+      {% if item.category %}<span class="rounded bg-accent-400/30 px-2 py-0.5 font-semibold text-accent-600">{{ item.category.name }}</span>{% endif %}
+      <span>{{ item.published_at|thai_date }}</span>
+    </div>
+    <h1 class="mt-3 text-3xl font-bold text-brand-800 leading-snug">{{ item.title }}</h1>
+    {% if item.cover %}<img src="{{ item.cover.url }}" alt="{{ item.title }}" class="mt-6 w-full rounded-xl">{% endif %}
+    <div class="content-body mt-6">{{ item.content|safe }}</div>
+  </article>
+
+  {% if related %}
+  <h2 class="mt-12 mb-4 text-2xl font-bold text-brand-800 border-l-4 border-accent-500 pl-3">ข่าวอื่นๆ</h2>
+  <div class="grid gap-6 sm:grid-cols-2">
+    {% for n in related %}{% include 'news_card.html' %}{% endfor %}
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
