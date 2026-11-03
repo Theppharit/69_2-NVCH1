@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}ติดต่อเรา | {{ site.name_th }}{% endblock %}
+
+{% block content %}
+<section class="bg-brand-700 text-white">
+  <div class="max-w-7xl mx-auto px-4 py-10">
+    <h1 class="text-3xl font-bold">ติดต่อเรา</h1>
+    <p class="mt-1 text-brand-100">ส่งข้อความถึงวิทยาลัย เราจะติดต่อกลับโดยเร็ว</p>
+  </div>
+</section>
+<div class="max-w-7xl mx-auto px-4 pt-10 grid gap-8 lg:grid-cols-5">
+  <div class="lg:col-span-2 space-y-4">
+    <div class="rounded-2xl bg-white p-6 ring-1 ring-slate-200">
+      <h2 class="font-bold text-brand-800 text-lg mb-3">{{ site.name_th }}</h2>
+      <ul class="space-y-2 text-slate-700">
+        {% if site.address %}<li>📍 {{ site.address }}</li>{% endif %}
+        {% if site.phone %}<li>☎️ {{ site.phone }}</li>{% endif %}
+        {% if site.email %}<li>✉️ {{ site.email }}</li>{% endif %}
+      </ul>
+    </div>
+    {% if site.map_embed_url %}<iframe src="{{ site.map_embed_url }}" class="w-full h-64 rounded-2xl border-0" loading="lazy"></iframe>{% endif %}
+  </div>
+  <form method="post" class="lg:col-span-3 rounded-2xl bg-white p-6 sm:p-8 ring-1 ring-slate-200 space-y-4">
+    {% csrf_token %}
+    {% for field in form %}
+    <div>
+      <label for="{{ field.id_for_label }}" class="block mb-1 font-medium text-slate-700">{{ field.label }}</label>
+      {{ field }}
+      {% for e in field.errors %}<p class="mt-1 text-sm text-red-600">{{ e }}</p>{% endfor %}
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn-primary">ส่งข้อความ</button>
+  </form>
+</div>
+{% endblock %}

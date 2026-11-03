@@ -1,0 +1,146 @@
+{% load static core_extras %}<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ site.name_th }}{% endblock %}</title>
+  <meta name="description" content="{% block description %}{{ site.name_th }} {{ site.tagline }}{% endblock %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/output.css' %}">
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 antialiased">
+
+  <!-- แถบบนสุด: ประกาศ + ลิงก์ -->
+  <div class="bg-brand-900 text-white text-sm">
+    <div class="max-w-7xl mx-auto px-4 h-10 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3 min-w-0">
+        <span class="shrink-0 rounded bg-accent-500 px-2 py-0.5 text-xs font-bold text-brand-900">ประกาศ</span>
+        <div class="truncate">
+          {% for a in announcements %}
+            <span data-ticker class="{% if not forloop.first %}hidden{% endif %}">
+              {% if a.url %}<a href="{{ a.url }}" class="hover:underline">{{ a.title }}</a>{% else %}{{ a.title }}{% endif %}
+              <span class="text-brand-200 ml-2">{{ a.date|thai_date }}</span>
+            </span>
+          {% empty %}
+            <span class="text-brand-200">ยินดีต้อนรับสู่เว็บไซต์ {{ site.name_th }}</span>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="hidden sm:flex items-center gap-4 shrink-0">
+        <a href="{% url 'news_list' %}" class="hover:text-accent-400">ข่าวสาร</a>
+        <a href="{% url 'contact' %}" class="hover:text-accent-400">ติดต่อเรา</a>
+        <a href="/admin/" class="hover:text-accent-400">เข้าสู่ระบบ</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ส่วนหัว: โลโก้ + ค้นหา -->
+  <header class="bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
+      <a href="{% url 'home' %}" class="flex items-center gap-3 min-w-0">
+        {% if site.logo %}
+          <img src="{{ site.logo.url }}" alt="โลโก้" class="h-14 w-14 object-contain">
+        {% else %}
+          <div class="h-14 w-14 rounded-full bg-brand-700 text-white grid place-items-center text-2xl font-bold">ว</div>
+        {% endif %}
+        <div class="min-w-0">
+          <div class="text-xl sm:text-2xl font-bold text-brand-800 leading-tight">{{ site.name_th }}</div>
+          <div class="text-xs sm:text-sm text-slate-500 truncate">{{ site.name_en }}</div>
+        </div>
+      </a>
+      <div class="flex items-center gap-3">
+        <form action="{% url 'news_list' %}" method="get" class="hidden md:flex">
+          <input type="search" name="q" placeholder="ค้นหาข่าวสาร..." class="w-56 rounded-l-lg border border-slate-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+          <button class="rounded-r-lg bg-brand-700 px-4 text-white text-sm hover:bg-brand-800" aria-label="ค้นหา">ค้นหา</button>
+        </form>
+        <button id="menu-btn" class="lg:hidden rounded-lg border border-slate-300 p-2" aria-label="เปิดเมนู">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- เมนูหลัก (เดสก์ท็อป) -->
+  <nav class="bg-brand-800 text-white hidden lg:block sticky top-0 z-40 shadow">
+    <ul class="max-w-7xl mx-auto px-4 flex">
+      <li><a href="{% url 'home' %}" class="block px-5 py-3 hover:bg-brand-700">หน้าแรก</a></li>
+      {% for item in menu_items %}
+      <li class="relative group">
+        <a href="{{ item.url }}" {% if item.new_tab %}target="_blank" rel="noopener"{% endif %} class="block px-5 py-3 hover:bg-brand-700">
+          {{ item.title }}{% if item.kids %} <span class="text-xs">▾</span>{% endif %}
+        </a>
+        {% if item.kids %}
+        <ul class="absolute left-0 top-full hidden group-hover:block min-w-[230px] bg-white text-slate-800 shadow-lg rounded-b-lg overflow-hidden">
+          {% for child in item.kids %}
+          <li><a href="{{ child.url }}" {% if child.new_tab %}target="_blank" rel="noopener"{% endif %} class="block px-4 py-2.5 hover:bg-brand-50 hover:text-brand-800">{{ child.title }}</a></li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  <!-- เมนูมือถือ -->
+  <nav id="mobile-menu" class="hidden lg:hidden bg-brand-800 text-white">
+    <ul class="divide-y divide-brand-700">
+      <li><a href="{% url 'home' %}" class="block px-5 py-3">หน้าแรก</a></li>
+      {% for item in menu_items %}
+      <li>
+        <a href="{{ item.url }}" class="block px-5 py-3">{{ item.title }}</a>
+        {% for child in item.kids %}
+          <a href="{{ child.url }}" class="block pl-10 pr-5 py-2 text-brand-100 bg-brand-900/40">{{ child.title }}</a>
+        {% endfor %}
+      </li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  {% if messages %}
+  <div class="max-w-7xl mx-auto px-4 mt-4">
+    {% for m in messages %}
+      <div class="rounded-lg bg-green-100 border border-green-300 text-green-800 px-4 py-3">{{ m }}</div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  <main>{% block content %}{% endblock %}</main>
+
+  <!-- ท้ายเว็บ -->
+  <footer class="mt-16 bg-brand-900 text-brand-100">
+    <div class="max-w-7xl mx-auto px-4 py-12 grid gap-8 md:grid-cols-3">
+      <div>
+        <h3 class="text-white text-lg font-bold mb-3">{{ site.name_th }}</h3>
+        <p class="text-sm text-brand-200">{{ site.name_en }}</p>
+        {% if site.tagline %}<p class="mt-3 text-sm">{{ site.tagline }}</p>{% endif %}
+      </div>
+      <div>
+        <h3 class="text-white text-lg font-bold mb-3">ติดต่อเรา</h3>
+        <ul class="space-y-2 text-sm">
+          {% if site.address %}<li>📍 {{ site.address }}</li>{% endif %}
+          {% if site.phone %}<li>☎️ {{ site.phone }}</li>{% endif %}
+          {% if site.email %}<li>✉️ <a class="hover:underline" href="mailto:{{ site.email }}">{{ site.email }}</a></li>{% endif %}
+        </ul>
+        <div class="mt-4 flex gap-3 text-sm">
+          {% if site.facebook_url %}<a class="rounded bg-brand-700 px-3 py-1 hover:bg-brand-600" href="{{ site.facebook_url }}" target="_blank" rel="noopener">Facebook</a>{% endif %}
+          {% if site.youtube_url %}<a class="rounded bg-brand-700 px-3 py-1 hover:bg-brand-600" href="{{ site.youtube_url }}" target="_blank" rel="noopener">YouTube</a>{% endif %}
+        </div>
+      </div>
+      <div>
+        <h3 class="text-white text-lg font-bold mb-3">ลิงก์</h3>
+        <ul class="space-y-2 text-sm">
+          <li><a class="hover:underline" href="{% url 'home' %}">หน้าแรก</a></li>
+          {% for item in menu_items %}<li><a class="hover:underline" href="{{ item.url }}">{{ item.title }}</a></li>{% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-brand-800 py-4 text-center text-sm text-brand-200">
+      {{ site.footer_text|default:site.name_th }}
+    </div>
+  </footer>
+
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% load static %}<!doctype html>
+<html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}{{ site.name_th }}{% endblock %}</title>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+{# โหมดพัฒนา: Tailwind Play CDN (ดูวิธี build จริงใน README) #}
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{brand:{DEFAULT:'#be185d',dark:'#831843',soft:'#fdf2f8'}},fontFamily:{sans:['Prompt','sans-serif']}}}}</script>
+</head>
+<body class="font-sans text-slate-800 bg-white">
+<div class="bg-brand-dark text-white text-sm"><div class="max-w-7xl mx-auto px-4 py-1.5 flex justify-between">
+  <span>{{ site.phone }} {{ site.email }}</span><span><a href="#" class="hover:underline">TH</a> | <a href="#" class="hover:underline">EN</a></span></div></div>
+<header class="sticky top-0 z-40 bg-white shadow"><div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+  <a href="{% url 'home' %}" class="flex items-center gap-3">
+    {% if site.logo %}<img src="{{ site.logo.url }}" class="h-14" alt="">{% else %}<div class="h-14 w-14 rounded-full bg-brand text-white grid place-items-center font-semibold">NCVC</div>{% endif %}
+    <div class="leading-tight"><div class="font-semibold text-brand-dark">{{ site.name_th }}</div><div class="text-xs text-slate-500">{{ site.name_en }}</div></div></a>
+  <nav class="hidden md:flex items-center gap-6 font-medium">
+    <a class="hover:text-brand" href="{% url 'home' %}">หน้าแรก</a>
+    {% for m in menu_pages %}<a class="hover:text-brand" href="{% url 'page' m.slug %}">{{ m.title }}</a>{% endfor %}
+    <a class="hover:text-brand" href="{% url 'news_list' %}">ข่าวสาร</a></nav>
+  <button onclick="document.getElementById('mm').classList.toggle('hidden')" class="md:hidden text-2xl">☰</button></div>
+  <div id="mm" class="hidden md:hidden px-4 pb-3 space-y-2"><a class="block" href="{% url 'home' %}">หน้าแรก</a>
+    {% for m in menu_pages %}<a class="block" href="{% url 'page' m.slug %}">{{ m.title }}</a>{% endfor %}<a class="block" href="{% url 'news_list' %}">ข่าวสาร</a></div></header>
+<main>{% block content %}{% endblock %}</main>
+<footer class="bg-brand-dark text-pink-100 mt-16"><div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-2 gap-6 text-sm">
+  <div><div class="text-white font-semibold text-lg">{{ site.name_th }}</div><p class="mt-2 whitespace-pre-line">{{ site.address }}</p></div>
+  <div class="md:text-right"><p>โทร {{ site.phone }}</p><p>{{ site.email }}</p>{% if site.facebook %}<a class="underline" href="{{ site.facebook }}">Facebook</a>{% endif %}</div></div>
+  <div class="text-center text-xs py-3 bg-black/20">{{ site.footer_text }}</div></footer>
+</body></html>
