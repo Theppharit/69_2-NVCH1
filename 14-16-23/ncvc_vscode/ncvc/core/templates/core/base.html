@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{{ site.name_th|default:"วิทยาลัยอาชีวศึกษานครราชสีมา" }}{% endblock %}</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+{# โหมดพัฒนา: ใช้ Tailwind CDN  |  โหมดใช้งานจริง: ดู README ให้สลับไปใช้ Tailwind CLI #}
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{sans:['Sarabun','sans-serif']},colors:{brand:{DEFAULT:'#b4234a',dark:'#7f1634'}}}}}</script>
+</head>
+<body class="font-sans text-slate-800 bg-white">
+<div class="bg-brand-dark text-white text-sm"><div class="max-w-7xl mx-auto px-4 py-1.5 flex justify-between">
+  <span>{{ site.name_en|default:"Nakhon Ratchasima Vocational College" }}</span>
+  <span class="hidden sm:inline">{% if site.phone %}☎ {{ site.phone }}{% endif %}{% if site.email %} · ✉ {{ site.email }}{% endif %}</span></div></div>
+<header class="sticky top-0 z-40 bg-white shadow">
+ <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+  <a href="/" class="flex items-center gap-3">
+   {% if site.logo %}<img src="{{ site.logo.url }}" class="h-14" alt="logo">{% else %}<div class="h-14 w-14 rounded-full bg-brand text-white grid place-items-center text-2xl font-bold">ว</div>{% endif %}
+   <div class="leading-tight"><div class="font-bold text-lg text-brand">{{ site.name_th|default:"วิทยาลัยอาชีวศึกษานครราชสีมา" }}</div>
+   <div class="text-xs text-slate-500">{{ site.name_en }}</div></div></a>
+  <nav class="hidden md:flex gap-8 font-semibold">{% for m in menu %}<a href="{{ m.url }}" class="hover:text-brand">{{ m.title }}</a>{% endfor %}</nav>
+  <button id="burger" class="md:hidden text-3xl" aria-label="menu">☰</button></div>
+ <nav id="mnav" class="hidden md:hidden border-t px-4 py-2 space-y-2">{% for m in menu %}<a href="{{ m.url }}" class="block py-1">{{ m.title }}</a>{% endfor %}</nav>
+</header>
+<main>{% block content %}{% endblock %}</main>
+<footer id="contact" class="bg-slate-900 text-slate-300 mt-16"><div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
+ <div><h3 class="text-white font-bold text-lg mb-2">{{ site.name_th }}</h3><p class="text-sm whitespace-pre-line">{{ site.address }}</p></div>
+ <div><h3 class="text-white font-bold mb-2">ติดต่อ</h3><p class="text-sm">{{ site.phone }}<br>{{ site.email }}</p>{% if site.facebook %}<a class="text-sm underline" href="{{ site.facebook }}">Facebook</a>{% endif %}</div>
+ <div><h3 class="text-white font-bold mb-2">ลิงก์ด่วน</h3>{% for q in quicklinks %}<a href="{{ q.url }}" class="block text-sm hover:text-white">{{ q.title }}</a>{% endfor %}</div></div>
+ <div class="text-center text-xs py-4 border-t border-slate-700">© {% now "Y" %} {{ site.name_th }}</div></footer>
+<script>document.getElementById('burger').onclick=()=>document.getElementById('mnav').classList.toggle('hidden')</script>
+</body></html>
