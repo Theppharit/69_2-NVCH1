@@ -1,11 +1,35 @@
-    <nav>
-        <ul>
-            <a href="index.php" class="">หน้าแรก</a>
-            <a href="p1.php" class="">หน้า 1</a>
-            <a href="p2.php" class="">หน้า 2</a>
-        </ul>
-        <ul></ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.php">คุณสมรเว็บไซต์</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <div class=""></div>
-        <div class=""></div>
-    </nav>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.php">หน้าแรก</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="p1.php">หน้า 1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="p2.php">หน้า 2</a>
+        </li>
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            ตัวเลือกเพิ่มเติม
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="index.php">หน้าแรก</a></li>
+            <li><a class="dropdown-item" href="p1.php">หน้า 1</a></li>
+            <li><a class="dropdown-item" href="p2.php">หน้า 2</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

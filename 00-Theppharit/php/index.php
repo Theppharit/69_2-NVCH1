@@ -2,36 +2,62 @@
 <html lang="en">
 
 
-้่<?php include 'include/head.php'; ?>
+<?php include 'include/head.php'; ?>
 
 
 <body>
 
-่<?php include 'include/navbar.php'; ?>
+    ่<?php include 'include/navbar.php'; ?>
 
     <main>
         <section>
 
-<h1>หน้าแรก</h1>
-<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur sed deleniti aut reiciendis quisquam laborum, impedit, est excepturi cum corporis assumenda ut eaque asperiores, recusandae ipsam molestiae veritatis ea? Nihil.</p>
+            <h1 class="display-1 text-center m-5">ยินดีต้อนรับสู่หน้าแรก</h1>
 
-            <div class=""></div>
-            <div class=""></div>
-            <div class=""></div>
-            <div class=""></div>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner w-50 center m-auto">
+                    <div class="carousel-item active">
+                        <img src="img/1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/2.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/3.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev w-50 center m-auto" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next w-50 center m-auto" type="button" data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+
+            </div>
         </section>
-        <section></section>
-        <section>
-            <article></article>
-            <article></article>
-            <article></article>
-        </section>
+
     </main>
 
     <footer>
         <div class=""></div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 
 

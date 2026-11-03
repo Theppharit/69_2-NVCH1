@@ -12,7 +12,7 @@
 
           <section>
 
-        <h1>หน้าสาม</h1>
+        <h1>หน้าสอง</h1>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consectetur quis omnis eum! Corporis, amet
          animi corrupti distinctio et id. Nemo, laborum voluptas ut consequuntur quia illo. A voluptatibus et quos.</p>
          
