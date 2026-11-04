@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Swap | ตลาดแบ่งปันรักษ์โลก</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Tahoma, sans-serif;
+    background: #f5faf5;
+    color: #263b2d;
+}
+
+header {
+    background: white;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px #0001;
+}
+
+.logo {
+    color: #27834d;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+nav a {
+    text-decoration: none;
+    color: #345642;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #299957;
+}
+
+.hero {
+    padding: 80px 10%;
+    background: linear-gradient(120deg,#dff3df,#f5fae9);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.hero h1 {
+    font-size: 43px;
+    color: #216b3d;
+    margin-bottom: 18px;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.hero img {
+    width: 40%;
+    border-radius: 20px;
+}
+
+.btn {
+    background: #27834d;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    background: #185e35;
+}
+
+section {
+    padding: 55px 8%;
+}
+
+.title {
+    text-align: center;
+    color: #216b3d;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.about {
+    text-align: center;
+    line-height: 2;
+    max-width: 850px;
+    margin: auto;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px #0001;
+}
+
+.card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.card h3 {
+    margin: 12px 0;
+}
+
+.price {
+    color: #27834d;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.card button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+form {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px #0001;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 18px;
+    border: 1px solid #cbd9ce;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+footer {
+    background: #205d38;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    line-height: 2;
+}
+
+@media(max-width:768px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 5px;
+        font-size: 13px;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero img {
+        width: 100%;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🌱 Green Swap</div>
+
+    <nav>
+        <a href="#home">หน้าแรก</a>
+        <a href="#about">เกี่ยวกับเรา</a>
+        <a href="#products">สินค้า</a>
+        <a href="#sell">ลงประกาศ</a>
+    </nav>
+</header>
+
+<!-- หน้าแรก -->
+<div class="hero" id="home">
+
+    <div>
+        <h1>เปลี่ยนของไม่ใช้<br>ให้มีคุณค่า 🌍</h1>
+
+        <p>
+            Green Swap เว็บไซต์ซื้อขายและแลกเปลี่ยนสินค้า
+            มือสอง เพื่อช่วยลดขยะและส่งเสริมการใช้ทรัพยากร
+            อย่างคุ้มค่า ร่วมสร้างโลกให้น่าอยู่ไปด้วยกัน
+        </p>
+
+        <a href="#products" class="btn">เลือกชมสินค้า</a>
+    </div>
+
+    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800"
+         alt="รักษ์โลก">
+</div>
+
+<!-- เกี่ยวกับเรา -->
+<section id="about">
+
+    <h2 class="title">เกี่ยวกับ Green Swap</h2>
+
+    <div class="about">
+        <p>
+            Green Swap คือแพลตฟอร์มดิจิทัลที่เปิดโอกาสให้
+            ผู้ใช้งานนำสิ่งของที่ไม่ได้ใช้งานแล้วมาขาย
+            แลกเปลี่ยน หรือแบ่งปันให้กับผู้อื่น
+        </p>
+
+        <p>
+            เราต้องการลดปริมาณขยะ ลดการใช้ทรัพยากรใหม่
+            และสนับสนุนแนวคิดการใช้ซ้ำ (Reuse)
+            เพื่อสิ่งแวดล้อมที่ยั่งยืน
+        </p>
+    </div>
+
+</section>
+
+<!-- สินค้า -->
+<section id="products">
+
+    <h2 class="title">สินค้ามือสองของเรา</h2>
+
+    <div class="products" id="productList">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=600"
+                 alt="หนังสือ">
+            <h3>📚 หนังสือมือสอง</h3>
+            <p>หนังสือสภาพดี พร้อมส่งต่อ</p>
+            <div class="price">60 บาท</div>
+            <button class="btn" onclick="interest('หนังสือมือสอง')">
+                สนใจสินค้า
+            </button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=600"
+                 alt="เสื้อผ้า">
+            <h3>👕 เสื้อผ้ามือสอง</h3>
+            <p>เสื้อผ้าสภาพดี ใช้งานได้</p>
+            <div class="price">80 บาท</div>
+            <button class="btn" onclick="interest('เสื้อผ้ามือสอง')">
+                สนใจสินค้า
+            </button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600"
+                 alt="กระเป๋า">
+            <h3>🎒 กระเป๋ามือสอง</h3>
+            <p>กระเป๋าสภาพดี ราคาประหยัด</p>
+            <div class="price">120 บาท</div>
+            <button class="btn" onclick="interest('กระเป๋ามือสอง')">
+                สนใจสินค้า
+            </button>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ลงประกาศสินค้า -->
+<section id="sell">
+
+    <h2 class="title">ลงประกาศสินค้า</h2>
+
+    <form id="sellForm">
+
+        <label>ชื่อสินค้า</label>
+        <input type="text" id="productName"
+               placeholder="กรอกชื่อสินค้า" required>
+
+        <label>หมวดหมู่สินค้า</label>
+        <select id="category">
+            <option>เสื้อผ้า</option>
+            <option>หนังสือ</option>
+            <option>กระเป๋า</option>
+            <option>ของใช้ทั่วไป</option>
+            <option>อื่น ๆ</option>
+        </select>
+
+        <label>ราคา (บาท)</label>
+        <input type="number" id="price"
+               placeholder="กรอกราคา" min="0" required>
+
+        <label>รายละเอียดสินค้า</label>
+        <textarea id="detail"
+                  placeholder="รายละเอียดสินค้า"></textarea>
+
+        <button type="submit" class="btn">
+            ลงประกาศสินค้า
+        </button>
+
+    </form>
+
+</section>
+
+<footer>
+    <h2>🌱 Green Swap</h2>
+
+    <p>เปลี่ยนของไม่ใช้ ให้มีคุณค่า</p>
+
+    <p>ร่วมเป็นส่วนหนึ่งในการลดขยะและรักษาสิ่งแวดล้อม</p>
+
+    <p>© 2026 Green Swap</p>
+</footer>
+
+<script>
+
+function interest(product) {
+    alert("คุณสนใจสินค้า: " + product +
+          "\nนี่เป็นเว็บไซต์ตัวอย่างสำหรับโครงงาน");
+}
+
+document.getElementById("sellForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("productName").value;
+    const category = document.getElementById("category").value;
+    const price = document.getElementById("price").value;
+    const detail = document.getElementById("detail").value;
+
+    alert(
+        "ลงประกาศตัวอย่างสำเร็จ!\n" +
+        "ชื่อสินค้า: " + name + "\n" +
+        "หมวดหมู่: " + category + "\n" +
+        "ราคา: " + price + " บาท\n" +
+        "รายละเอียด: " + detail
+    );
+
+    this.reset();
+
+});
+
+</script>
+
+</body>
+</html>
