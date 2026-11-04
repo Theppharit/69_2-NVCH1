@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}{{ dept.name }} | {{ site.name_th }}{% endblock %}
+
+{% block content %}
+<section class="bg-brand-700 text-white">
+  <div class="max-w-7xl mx-auto px-4 py-10">
+    <div class="text-sm text-brand-100"><a href="{% url 'department_list' %}" class="hover:underline">แผนกวิชา</a> ›</div>
+    <h1 class="mt-1 text-3xl font-bold">{{ dept.icon }} {{ dept.name }}</h1>
+  </div>
+</section>
+<div class="max-w-7xl mx-auto px-4 pt-8 grid gap-8 lg:grid-cols-4">
+  <article class="lg:col-span-3 rounded-2xl bg-white p-6 sm:p-10 ring-1 ring-slate-200">
+    {% if dept.image %}<img src="{{ dept.image.url }}" alt="{{ dept.name }}" class="mb-6 w-full rounded-xl">{% endif %}
+    {% if dept.summary %}<p class="text-lg text-slate-600 mb-4">{{ dept.summary }}</p>{% endif %}
+    <div class="content-body">{{ dept.content|safe }}</div>
+  </article>
+  <aside class="rounded-2xl bg-white p-5 ring-1 ring-slate-200 h-fit">
+    <h2 class="font-bold text-brand-800 mb-3">แผนกอื่นๆ</h2>
+    <ul class="space-y-2">
+      {% for o in others %}<li><a href="{{ o.get_absolute_url }}" class="text-brand-600 hover:underline">{{ o.icon }} {{ o.name }}</a></li>{% endfor %}
+    </ul>
+  </aside>
+</div>
+{% endblock %}

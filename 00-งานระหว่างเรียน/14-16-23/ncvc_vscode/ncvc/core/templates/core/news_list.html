@@ -1,0 +1,16 @@
+{% extends "core/base.html" %}
+{% block title %}ข่าวสาร | {{ site.name_th }}{% endblock %}
+{% block content %}<div class="max-w-7xl mx-auto px-4 py-10">
+ <h1 class="text-3xl font-bold border-l-4 border-brand pl-3">ข่าวสาร</h1>
+ <div class="flex flex-wrap gap-2 my-6"><a href="?" class="px-4 py-1 rounded-full border {% if not cat %}bg-brand text-white{% endif %}">ทั้งหมด</a>
+  {% for k,v in cats %}<a href="?cat={{ k }}" class="px-4 py-1 rounded-full border {% if cat == k %}bg-brand text-white{% endif %}">{{ v }}</a>{% endfor %}</div>
+ <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">{% for n in page %}
+  <a href="{% url 'news_detail' n.pk %}" class="rounded-xl overflow-hidden shadow hover:shadow-lg transition bg-white">
+   <div class="h-44 bg-slate-200">{% if n.image %}<img src="{{ n.image.url }}" class="w-full h-full object-cover" alt="">{% endif %}</div>
+   <div class="p-4"><div class="text-xs text-slate-500">{{ n.published|date:"j M Y" }} · {{ n.get_category_display }}</div>
+    <h3 class="font-semibold mt-1">{{ n.title }}</h3><p class="text-sm text-slate-600 mt-1">{{ n.summary }}</p></div></a>
+ {% empty %}<p>ยังไม่มีข่าว</p>{% endfor %}</div>
+ <div class="flex gap-3 justify-center mt-8">{% if page.has_previous %}<a class="px-4 py-1 border rounded" href="?page={{ page.previous_page_number }}{% if cat %}&cat={{ cat }}{% endif %}">← ก่อนหน้า</a>{% endif %}
+  <span class="py-1">{{ page.number }} / {{ page.paginator.num_pages }}</span>
+  {% if page.has_next %}<a class="px-4 py-1 border rounded" href="?page={{ page.next_page_number }}{% if cat %}&cat={{ cat }}{% endif %}">ถัดไป →</a>{% endif %}</div>
+</div>{% endblock %}

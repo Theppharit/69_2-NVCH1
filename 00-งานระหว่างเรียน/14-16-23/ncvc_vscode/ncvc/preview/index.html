@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>วิทยาลัยอาชีวศึกษานครราชสีมา</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{sans:['Sarabun','sans-serif']}}}}</script>
+<style>
+:root{--bg:#fff;--fg:#1e293b;--card:#fff;--soft:#f8fafc;--mut:#64748b;--line:#e2e8f0;--brand:#b4234a;--dark:#7f1634;--foot:#0f172a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1120;--fg:#e2e8f0;--card:#162033;--soft:#101a2e;--mut:#94a3b8;--line:#263449;--brand:#e0507a;--foot:#050912}}
+:root[data-theme="dark"]{--bg:#0b1120;--fg:#e2e8f0;--card:#162033;--soft:#101a2e;--mut:#94a3b8;--line:#263449;--brand:#e0507a;--foot:#050912}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--fg);font-family:'Sarabun',sans-serif}
+.card{background:var(--card);border:1px solid var(--line)}
+.slide{transition:opacity .7s}
+</style>
+</head>
+<body>
+<div style="background:var(--dark)" class="text-white text-sm"><div class="max-w-7xl mx-auto px-4 py-1.5 flex justify-between">
+<span>Nakhon Ratchasima Vocational College</span><span class="hidden sm:inline">☎ 044-000-000 · ✉ info@ncvc.ac.th</span></div></div>
+
+<header class="sticky top-0 z-40 shadow" style="background:var(--card)">
+<div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+<a href="#" class="flex items-center gap-3">
+<div class="h-14 w-14 rounded-full text-white grid place-items-center text-2xl font-bold" style="background:var(--brand)">ว</div>
+<div class="leading-tight"><div class="font-bold text-lg" style="color:var(--brand)">วิทยาลัยอาชีวศึกษานครราชสีมา</div>
+<div class="text-xs" style="color:var(--mut)">Nakhon Ratchasima Vocational College</div></div></a>
+<nav class="hidden md:flex gap-8 font-semibold"><a href="#">หน้าแรก</a><a href="#news">ข่าวสาร</a><a href="#dept">แผนกวิชา</a><a href="#contact">ติดต่อเรา</a></nav>
+<button id="b" class="md:hidden text-3xl" aria-label="เมนู">☰</button></div>
+<nav id="m" class="hidden md:hidden border-t px-4 py-2 space-y-2" style="border-color:var(--line)"><a class="block" href="#">หน้าแรก</a><a class="block" href="#news">ข่าวสาร</a><a class="block" href="#dept">แผนกวิชา</a><a class="block" href="#contact">ติดต่อเรา</a></nav>
+</header>
+
+<section class="relative h-[340px] md:h-[480px] overflow-hidden text-white">
+<div class="slide absolute inset-0 flex items-center" style="background:linear-gradient(135deg,#b4234a,#5b0f27)"><div class="max-w-7xl mx-auto px-4 w-full"><h1 class="text-3xl md:text-5xl font-bold">ทักษะเยี่ยม คุณธรรมนำ</h1><p class="mt-3 md:text-xl opacity-90">เปิดรับสมัครนักเรียน ปวช. และ ปวส. ปีการศึกษาใหม่</p><a href="#" class="inline-block mt-5 bg-white px-5 py-2 rounded-full font-semibold" style="color:#b4234a">สมัครเรียน</a></div></div>
+<div class="slide absolute inset-0 flex items-center opacity-0" style="background:linear-gradient(135deg,#1e3a8a,#0f172a)"><div class="max-w-7xl mx-auto px-4 w-full"><h1 class="text-3xl md:text-5xl font-bold">ห้องปฏิบัติการทันสมัย</h1><p class="mt-3 md:text-xl opacity-90">เรียนรู้จากการลงมือทำจริง พร้อมสู่ตลาดแรงงาน</p></div></div>
+<div class="slide absolute inset-0 flex items-center opacity-0" style="background:linear-gradient(135deg,#047857,#064e3b)"><div class="max-w-7xl mx-auto px-4 w-full"><h1 class="text-3xl md:text-5xl font-bold">ความร่วมมือกับสถานประกอบการ</h1><p class="mt-3 md:text-xl opacity-90">ระบบทวิภาคี เรียนไปทำงานไป</p></div></div>
+<div class="absolute bottom-4 inset-x-0 flex justify-center gap-2" id="dots"></div>
+</section>
+
+<section class="max-w-7xl mx-auto px-4 -mt-10 relative z-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+<a href="#" class="card rounded-xl shadow-lg p-5 text-center hover:-translate-y-1 transition"><div class="text-3xl">📝</div><div class="mt-2 font-semibold">รับสมัครนักเรียน</div></a>
+<a href="#" class="card rounded-xl shadow-lg p-5 text-center hover:-translate-y-1 transition"><div class="text-3xl">📅</div><div class="mt-2 font-semibold">ปฏิทินการศึกษา</div></a>
+<a href="#" class="card rounded-xl shadow-lg p-5 text-center hover:-translate-y-1 transition"><div class="text-3xl">🗂️</div><div class="mt-2 font-semibold">ระบบงานทะเบียน</div></a>
+<a href="#" class="card rounded-xl shadow-lg p-5 text-center hover:-translate-y-1 transition"><div class="text-3xl">☎️</div><div class="mt-2 font-semibold">ติดต่อสอบถาม</div></a>
+</section>
+
+<section id="news" class="max-w-7xl mx-auto px-4 mt-14">
+<div class="flex justify-between items-end mb-6"><h2 class="text-2xl font-bold pl-3" style="border-left:4px solid var(--brand)">ข่าวสารล่าสุด</h2><a href="#" class="font-semibold" style="color:var(--brand)">ดูทั้งหมด →</a></div>
+<div class="grid lg:grid-cols-3 gap-6">
+<a href="#" class="lg:col-span-2 relative rounded-2xl overflow-hidden min-h-[320px] block text-white" style="background:linear-gradient(160deg,#334155,#0f172a)">
+<div class="absolute inset-x-0 bottom-0 p-6" style="background:linear-gradient(to top,rgba(0,0,0,.8),transparent)"><span class="text-xs px-2 py-0.5 rounded" style="background:#b4234a">รับสมัครนักเรียน</span><h3 class="text-2xl font-bold mt-2">เปิดรับสมัครนักเรียนใหม่ ประจำปีการศึกษา 2569</h3><p class="text-sm opacity-80">3 พฤศจิกายน 2569</p></div></a>
+<div class="space-y-4" style="--t:var(--mut)">
+<a href="#" class="block pb-3" style="border-bottom:1px solid var(--line)"><div class="text-xs" style="color:var(--mut)">1 พ.ย. 2569 · ข่าวกิจกรรม</div><div class="font-semibold">กิจกรรมไหว้ครูและรับน้องใหม่</div></a>
+<a href="#" class="block pb-3" style="border-bottom:1px solid var(--line)"><div class="text-xs" style="color:var(--mut)">29 ต.ค. 2569 · รางวัล</div><div class="font-semibold">นักเรียนคว้ารางวัลทักษะวิชาชีพระดับภาค</div></a>
+<a href="#" class="block pb-3" style="border-bottom:1px solid var(--line)"><div class="text-xs" style="color:var(--mut)">25 ต.ค. 2569 · ประชาสัมพันธ์</div><div class="font-semibold">ประกาศปฏิทินการสอบกลางภาค</div></a>
+<a href="#" class="block pb-3" style="border-bottom:1px solid var(--line)"><div class="text-xs" style="color:var(--mut)">20 ต.ค. 2569 · ข่าวกิจกรรม</div><div class="font-semibold">ศึกษาดูงานสถานประกอบการทวิภาคี</div></a>
+</div></div></section>
+
+<section id="dept" class="mt-14 py-14" style="background:var(--soft)"><div class="max-w-7xl mx-auto px-4">
+<h2 class="text-2xl font-bold pl-3 mb-6" style="border-left:4px solid var(--brand)">แผนกวิชา</h2>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+<div class="card rounded-xl p-5 text-center hover:shadow-lg transition"><div class="text-4xl">🚗</div><div class="font-semibold mt-2">ช่างยนต์</div><div class="text-xs" style="color:var(--mut)">ปวช./ปวส.</div></div>
+<div class="card rounded-xl p-5 text-center hover:shadow-lg transition"><div class="text-4xl">⚡</div><div class="font-semibold mt-2">ช่างไฟฟ้ากำลัง</div><div class="text-xs" style="color:var(--mut)">ปวช./ปวส.</div></div>
+<div class="card rounded-xl p-5 text-center hover:shadow-lg transition"><div class="text-4xl">🔌</div><div class="font-semibold mt-2">อิเล็กทรอนิกส์</div><div class="text-xs" style="color:var(--mut)">ปวช./ปวส.</div></div>
+<div class="card rounded-xl p-5 text-center hover:shadow-lg transition"><div class="text-4xl">💻</div><div class="font-semibold mt-2">เทคโนโลยีสารสนเทศ</div><div class="text-xs" style="color:var(--mut)">ปวช./ปวส.</div></div>
+<div class="card rounded-xl p-5 text-center hover:shadow-lg transition"><div class="text-4xl">📊</div><div class="font-semibold mt-2">การบัญชี</div><div class="text-xs" style="color:var(--mut)">ปวช./ปวส.</div></div>
+<div class="card rounded-xl p-5 text-center hover:shadow-lg transition"><div class="text-4xl">🏨</div><div class="font-semibold mt-2">การโรงแรม</div><div class="text-xs" style="color:var(--mut)">ปวช./ปวส.</div></div>
+</div></div></section>
+
+<footer id="contact" class="text-slate-300 mt-0" style="background:var(--foot)">
+<div class="max-w-7xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8 text-sm">
+<div><h3 class="text-white font-bold text-lg mb-2">วิทยาลัยอาชีวศึกษานครราชสีมา</h3><p>อำเภอเมือง จังหวัดนครราชสีมา</p></div>
+<div><h3 class="text-white font-bold mb-2">ติดต่อ</h3><p>044-000-000<br>info@ncvc.ac.th</p></div>
+<div><h3 class="text-white font-bold mb-2">ลิงก์ด่วน</h3><a class="block" href="#">รับสมัครนักเรียน</a><a class="block" href="#">ปฏิทินการศึกษา</a></div></div>
+<div class="text-center text-xs py-4 border-t border-slate-700">© 2026 วิทยาลัยอาชีวศึกษานครราชสีมา</div></footer>
+
+<script>
+document.getElementById('b').onclick=()=>document.getElementById('m').classList.toggle('hidden');
+const s=[...document.querySelectorAll('.slide')],d=document.getElementById('dots');let i=0;
+s.forEach((_,k)=>{const e=document.createElement('span');e.className='h-2 w-2 rounded-full bg-white/50';d.appendChild(e)});
+const go=n=>{s[i].classList.add('opacity-0');d.children[i].classList.replace('bg-white','bg-white/50');i=n;s[i].classList.remove('opacity-0');d.children[i].classList.replace('bg-white/50','bg-white')};
+d.children[0].classList.replace('bg-white/50','bg-white');
+setInterval(()=>go((i+1)%s.length),5000);
+</script>
+</body>
+</html>
