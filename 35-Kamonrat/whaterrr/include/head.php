@@ -3,16 +3,16 @@ ob_start();
 session_start();
 
 // เชื่อมฐานข้อมูล
-$conn = mysqli_connect("localhost", "root", "", "nvc-test");
+$conn = mysqli_connect("localhost", "root", "", "nvc");
 mysqli_set_charset($conn, "utf8");
 
 // ดึงข้อมูลจากทุกตารางในฐานข้อมูล
-$users = mysqli_fetch_all(mysqli_query($conn, "SELECT * FROM users_"), MYSQLI_ASSOC);
+$users = mysqli_fetch_all(mysqli_query($conn, "SELECT * FROM data"), MYSQLI_ASSOC);
 
 // ดูว่าใครล็อคอินอยู่ตอนนี้
 $me = null;
 foreach ($users as $u) {
-    if (isset($_SESSION['u_id']) && $u['u_id'] == $_SESSION['u_id'])
+    if (isset($_SESSION['U_id']) && $u['U_id'] == $_SESSION['U_id'])
         $me = $u;
 }
 ?>
