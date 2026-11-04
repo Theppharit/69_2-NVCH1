@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoLoop - แพลตฟอร์มส่งเสริมการกินอย่างยั่งยืน ลดขยะอาหาร</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Prompt -->
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Prompt', sans-serif; }
+    </style>
+</head>
+<body class="bg-emerald-50/40 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- 1. Navigation Bar -->
+    <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-emerald-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-md">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <span class="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-teal-700 bg-clip-text text-transparent">EcoLoop</span>
+                </div>
+                <!-- Menu -->
+                <div class="hidden md:flex space-x-8 font-medium text-slate-600">
+                    <a href="#home" class="hover:text-emerald-600 transition">หน้าแรก</a>
+                    <a href="#marketplace" class="hover:text-emerald-600 transition">ตลาดอาหารส่วนเกิน</a>
+                    <a href="#impact" class="hover:text-emerald-600 transition">ผลกระทบต่อสิ่งแวดล้อม</a>
+                </div>
+                <!-- User Profile / Cart -->
+                <div class="flex items-center space-x-4">
+                    <button id="cart-btn" onclick="toggleCartModal()" class="relative p-2 text-slate-600 hover:text-emerald-600 transition">
+                        <i class="fa-solid fa-basket-shopping text-xl"></i>
+                        <span id="cart-count" class="absolute -top-1 -right-1 bg-emerald-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">0</span>
+                    </button>
+                    <button class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl shadow-md transition font-medium flex items-center gap-2">
+                        <i class="fa-regular fa-user"></i> เข้าสู่ระบบ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 2. Hero Section -->
+    <section id="home" class="relative py-16 md:py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1.5 rounded-full uppercase tracking-wide inline-flex items-center gap-1">
+                        <i class="fa-solid fa-seedling"></i> Green Digital Innovation
+                    </span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight">
+                        กอบกู้โลกทุกคำ <br>ด้วยการ <span class="text-emerald-600">ลดขยะอาหาร</span>
+                    </h1>
+                    <p class="text-slate-600 text-lg">
+                        แพลตฟอร์มเชื่อมโยงอาหารคุณภาพดีส่วนเกินจากร้านค้าถึงมือคุณในราคาประหยัด ลดการเกิดก๊าซเรือนกระจกและสร้างพฤติกรรมความยั่งยืน
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                        <a href="#marketplace" class="bg-emerald-600 hover:bg-emerald-700 text-white text-center font-semibold px-6 py-3.5 rounded-xl shadow-lg hover:shadow-xl transition">
+                            ค้นหาอาหารใกล้คุณ
+                        </a>
+                        <a href="#impact" class="border border-emerald-600 text-emerald-700 hover:bg-emerald-50 text-center font-semibold px-6 py-3.5 rounded-xl transition">
+                            ดูคำนวณ Carbon Footprint
+                        </a>
+                    </div>
+                </div>
+                <!-- Interactive CO2 Savings Widget Card -->
+                <div class="bg-white p-8 rounded-3xl shadow-xl border border-emerald-100 relative">
+                    <div class="absolute -top-4 -right-4 bg-teal-500 text-white p-3 rounded-2xl shadow-lg animate-bounce">
+                        <i class="fa-solid fa-earth-americas text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-chart-line text-emerald-600"></i> สรุปผลกระทบเชิงบวกวันนี้
+                    </h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-100 text-center">
+                            <p class="text-slate-500 text-sm">ลดขยะอาหารสะสม</p>
+                            <p class="text-3xl font-extrabold text-emerald-600 mt-1"><span id="stat-meals">1,248</span> กก.</p>
+                        </div>
+                        <div class="bg-teal-50 p-4 rounded-2xl border border-teal-100 text-center">
+                            <p class="text-slate-500 text-sm">ลดก๊าซคาร์บอน (CO₂e)</p>
+                            <p class="text-3xl font-extrabold text-teal-600 mt-1"><span id="stat-co2">3.1</span> ตัน</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Marketplace Section -->
+    <section id="marketplace" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-bold text-slate-900">ตลาดอาหารกู้โลก (Surplus Marketplace)</h2>
+                <p class="text-slate-600 mt-2">เลือกซื้อกล่องสุ่มอาหารอร่อยในราคาสุดพิเศษ ลดภาระกระเป๋าตังค์และช่วยสิ่งแวดล้อม</p>
+            </div>
+
+            <!-- Product Cards Container -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="product-list">
+                <!-- JavaScript จะเพิ่มสินค้าลงที่นี่ -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Carbon Footprint & Impact Dashboard Section -->
+    <section id="impact" class="py-16 bg-emerald-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-4">ระบบคำนวณ Green Impact Dashboard</h2>
+                    <p class="text-emerald-200 mb-6">
+                        ทุกๆ การสั่งซื้อบน EcoLoop จะถูกแปลงเป็นตัวเลขทางสิ่งแวดล้อมที่จับต้องได้ สะสมคะแนน Green Points เพื่อแลกรับสิทธิพิเศษจากพาร์ทเนอร์สายกรีน
+                    </p>
+                </div>
+                <div class="bg-emerald-800/80 p-6 rounded-3xl border border-emerald-700 shadow-2xl">
+                    <h3 class="text-xl font-bold mb-4 text-emerald-300">ตัวอย่าง: บัญชีส่วนตัวของฉัน</h3>
+                    <div class="bg-emerald-900/90 p-4 rounded-2xl mb-4 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs text-emerald-300">ระดับผู้ใช้งาน</p>
+                            <p class="text-lg font-bold">🌱 Eco Warrior Level 3</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xs text-emerald-300">คะแนนสะสม</p>
+                            <p class="text-xl font-extrabold text-amber-400"><i class="fa-solid fa-star"></i> 450 Points</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Modal ตะกร้าสินค้า -->
+    <div id="cart-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-emerald-100 relative">
+            <div class="flex justify-between items-center border-b pb-3 mb-4">
+                <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-basket-shopping text-emerald-600"></i> ตะกร้ากู้โลกของคุณ
+                </h3>
+                <button onclick="toggleCartModal()" class="text-slate-400 hover:text-slate-600 text-xl font-bold">✕</button>
+            </div>
+            
+            <!-- List Items -->
+            <div id="cart-items-list" class="space-y-3 max-h-60 overflow-y-auto pr-1 mb-4">
+                <!-- JS Inject -->
+            </div>
+
+            <!-- Summary -->
+            <div class="bg-emerald-50 p-4 rounded-2xl mb-4 space-y-2 text-sm border border-emerald-100">
+                <div class="flex justify-between font-bold text-slate-800">
+                    <span>ราคารวมทั้งหมด:</span>
+                    <span id="cart-total-price" class="text-emerald-600 text-base">฿0</span>
+                </div>
+                <div class="flex justify-between text-teal-700 text-xs font-medium">
+                    <span>ลดก๊าซคาร์บอน (CO₂e) รวม:</span>
+                    <span id="cart-total-co2">0 kg</span>
+                </div>
+            </div>
+
+            <!-- Checkout Button -->
+            <button onclick="checkoutCart()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition shadow-lg flex items-center justify-center gap-2">
+                <i class="fa-solid fa-leaf"></i> ยืนยันการสั่งซื้อกู้โลก
+            </button>
+        </div>
+    </div>
+
+    <!-- 6. Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs">
+            <p>วิทยาลัยอาชีวะศึกษานครราชสีมา - จำทำโดย นางสาวณัฐณิชา วนกลาง ส.1 ทด.1 เลขที่ 14</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        const products = [
+            {
+                id: 1,
+                title: "Mystery Box Bakery",
+                store: "ร้านเบเกอรี่อบสดใหม่",
+                originalPrice: 250,
+                price: 89,
+                co2Saved: "2.5 kg",
+                img: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 2,
+                title: "ชุดแซลมอน & ซูชิเซ็ต",
+                store: "ร้านอาหารญี่ปุ่น โอซาก้า",
+                originalPrice: 400,
+                price: 159,
+                co2Saved: "3.8 kg",
+                img: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 3,
+                title: "กล่องสุ่มอาหารคลีนออร์แกนิก",
+                store: "Green Clean Cafe",
+                originalPrice: 180,
+                price: 69,
+                co2Saved: "1.9 kg",
+                img: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80"
+            }
+        ];
+
+        let cart = [];
+
+        function renderProducts() {
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = products.map(product => `
+                <div class="bg-white rounded-3xl overflow-hidden shadow-lg border border-slate-100 hover:shadow-xl transition duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="${product.img}" alt="${product.title}" class="w-full h-full object-cover">
+                            <span class="absolute top-3 right-3 bg-emerald-600 text-white text-xs px-3 py-1 rounded-full font-semibold shadow">
+                                <i class="fa-solid fa-leaf"></i> ลด CO₂ ${product.co2Saved}
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-xs text-emerald-600 font-semibold mb-1">${product.store}</p>
+                            <h3 class="font-bold text-slate-800 text-lg mb-2">${product.title}</h3>
+                            <div class="flex items-baseline gap-2">
+                                <span class="text-2xl font-extrabold text-emerald-600">฿${product.price}</span>
+                                <span class="text-sm text-slate-400 line-through">฿${product.originalPrice}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="addToCart(${product.id})" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2.5 rounded-xl transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-cart-plus"></i> เพิ่มลงตะกร้ากู้โลก
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                cart.push(product);
+                updateCartCount();
+                renderCart();
+                alert(`เพิ่ม "${product.title}" ลงในตะกร้าเรียบร้อยแล้ว!`);
+            }
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartCount();
+            renderCart();
+        }
+
+        function updateCartCount() {
+            document.getElementById('cart-count').innerText = cart.length;
+        }
+
+        function toggleCartModal() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        function renderCart() {
+            const cartList = document.getElementById('cart-items-list');
+            const totalPriceEl = document.getElementById('cart-total-price');
+            const totalCo2El = document.getElementById('cart-total-co2');
+
+            if (cart.length === 0) {
+                cartList.innerHTML = `<p class="text-center text-slate-400 py-6">ยังไม่มีสินค้าในตะกร้า</p>`;
+                totalPriceEl.innerText = `฿0`;
+                totalCo2El.innerText = `0 kg`;
+                return;
+            }
+
+            let totalPrice = 0;
+            let totalCo2 = 0;
+
+            cartList.innerHTML = cart.map((item, index) => {
+                totalPrice += item.price;
+                totalCo2 += parseFloat(item.co2Saved);
+                return `
+                    <div class="flex justify-between items-center bg-slate-50 p-3 rounded-xl border border-slate-100">
+                        <div class="flex items-center gap-3">
+                            <img src="${item.img}" class="w-12 h-12 rounded-lg object-cover">
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">${item.title}</h4>
+                                <p class="text-xs text-emerald-600 font-medium">฿${item.price} (ลด CO₂ ${item.co2Saved})</p>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${index})" class="text-rose-500 hover:text-rose-700 text-xs px-2 py-1">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+            }).join('');
+
+            totalPriceEl.innerText = `฿${totalPrice}`;
+            totalCo2El.innerText = `${totalCo2.toFixed(1)} kg`;
+        }
+
+        function checkoutCart() {
+            if (cart.length === 0) {
+                alert("กรุณาเลือกสินค้าลงตะกร้าก่อนทำการสั่งซื้อครับ");
+                return;
+            }
+            alert("🎉 สั่งซื้อสำเร็จ! ขอบคุณที่ร่วมเป็นส่วนหนึ่งในการกู้โลกและลดขยะอาหารครับ");
+            cart = [];
+            updateCartCount();
+            renderCart();
+            toggleCartModal();
+        }
+
+        window.onload = renderProducts;
+    </script>
+</body>
+</html>
