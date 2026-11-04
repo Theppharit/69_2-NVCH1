@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>วิทยาลัยอาชีวศึกษานครราชสีมา</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Sarabun:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { ink: '#16233F', brand: '#E8590C', paper: '#F5F6F8' },
+  fontFamily: { head: ['Prompt', 'sans-serif'], body: ['Sarabun', 'sans-serif'] }
+} } }
+</script>
+</head>
+<body class="font-body text-slate-800 bg-white antialiased">
+
+<!-- แถบบนสุด -->
+<div class="bg-ink text-slate-200 text-sm">
+  <div class="max-w-6xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between gap-2">
+    <span>โทร 044-000-000 &nbsp;|&nbsp; info@example.ac.th</span>
+    <form class="flex" onsubmit="return false">
+      <input placeholder="ค้นหาข่าว" aria-label="ค้นหาข่าว" class="px-3 py-1 text-slate-800 rounded-l w-40 sm:w-56">
+      <button class="bg-brand px-3 rounded-r text-white">ค้นหา</button>
+    </form>
+  </div>
+</div>
+
+<!-- เมนู -->
+<header class="bg-white border-b sticky top-0 z-40">
+  <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-20">
+    <a href="#" class="flex items-center gap-3">
+      <span class="h-14 w-14 grid place-items-center bg-brand text-white font-head font-bold text-xl rounded">นม</span>
+      <span class="leading-tight">
+        <span class="block font-head font-semibold text-ink text-lg">วิทยาลัยอาชีวศึกษานครราชสีมา</span>
+        <span class="block text-xs text-slate-500">Nakhon Ratchasima Vocational College</span>
+      </span>
+    </a>
+    <nav class="hidden lg:block" aria-label="เมนูหลัก">
+      <ul class="flex gap-1 font-medium">
+        <li class="relative group">
+          <a href="#" class="block px-4 py-2 hover:text-brand">เกี่ยวกับวิทยาลัย ▾</a>
+          <ul class="hidden group-hover:block group-focus-within:block absolute left-0 top-full bg-white border shadow-lg min-w-52 py-2">
+            <li><a href="#" class="block px-4 py-2 hover:bg-paper hover:text-brand">ประวัติวิทยาลัย</a></li>
+            <li><a href="#" class="block px-4 py-2 hover:bg-paper hover:text-brand">ติดต่อเรา</a></li>
+          </ul>
+        </li>
+        <li><a href="#depts" class="block px-4 py-2 hover:text-brand">หลักสูตร / แผนกวิชา</a></li>
+        <li><a href="#news" class="block px-4 py-2 hover:text-brand">ข่าวสาร</a></li>
+        <li><a href="#" class="block px-4 py-2 hover:text-brand">รับสมัครนักเรียน</a></li>
+      </ul>
+    </nav>
+    <button id="navbtn" class="lg:hidden px-3 py-2 border rounded" aria-controls="mnav" aria-expanded="false">เมนู</button>
+  </div>
+  <ul id="mnav" class="hidden lg:hidden border-t bg-white px-4 py-2">
+    <li><a href="#" class="block py-2 font-medium">เกี่ยวกับวิทยาลัย</a>
+      <a href="#" class="block py-1 pl-4 text-slate-600">ประวัติวิทยาลัย</a>
+      <a href="#" class="block py-1 pl-4 text-slate-600">ติดต่อเรา</a></li>
+    <li><a href="#depts" class="block py-2 font-medium">หลักสูตร / แผนกวิชา</a></li>
+    <li><a href="#news" class="block py-2 font-medium">ข่าวสาร</a></li>
+    <li><a href="#" class="block py-2 font-medium">รับสมัครนักเรียน</a></li>
+  </ul>
+</header>
+
+<main>
+<!-- แบนเนอร์ -->
+<section class="relative bg-ink text-white overflow-hidden" aria-label="แบนเนอร์">
+  <div class="slide relative h-[360px] sm:h-[460px] bg-gradient-to-br from-ink via-ink to-slate-600">
+    <div class="relative max-w-6xl mx-auto px-4 h-full flex flex-col justify-center">
+      <h1 class="font-head font-bold text-3xl sm:text-5xl max-w-2xl leading-tight">เปิดรับสมัครนักเรียน นักศึกษาใหม่</h1>
+      <p class="mt-4 text-lg text-slate-200 max-w-xl">ปวช. ปวส. และหลักสูตรระยะสั้น</p>
+      <a href="#" class="mt-6 self-start bg-brand px-6 py-3 font-medium rounded">ดูรายละเอียด</a>
+    </div>
+  </div>
+  <div class="slide hidden relative h-[360px] sm:h-[460px] bg-gradient-to-br from-slate-700 via-ink to-ink">
+    <div class="relative max-w-6xl mx-auto px-4 h-full flex flex-col justify-center">
+      <h1 class="font-head font-bold text-3xl sm:text-5xl max-w-2xl leading-tight">เรียนรู้จากงานจริงในโรงฝึกงาน</h1>
+      <p class="mt-4 text-lg text-slate-200 max-w-xl">ครูผู้สอนและสถานประกอบการร่วมพัฒนาผู้เรียน</p>
+    </div>
+  </div>
+  <div class="absolute bottom-16 right-4 flex gap-2">
+    <button id="prev" class="bg-white/20 hover:bg-white/40 w-10 h-10 rounded" aria-label="ก่อนหน้า">‹</button>
+    <button id="next" class="bg-white/20 hover:bg-white/40 w-10 h-10 rounded" aria-label="ถัดไป">›</button>
+  </div>
+</section>
+
+<!-- ลิงก์ด่วน -->
+<section class="max-w-6xl mx-auto px-4 -mt-10 relative z-10">
+  <ul class="grid grid-cols-2 md:grid-cols-4 bg-white shadow-lg border-t-4 border-brand">
+    <li><a href="#" class="flex flex-col items-center gap-1 py-6 hover:bg-paper font-head font-medium text-ink"><span class="text-3xl">📝</span>สมัครเรียน</a></li>
+    <li><a href="#depts" class="flex flex-col items-center gap-1 py-6 hover:bg-paper font-head font-medium text-ink"><span class="text-3xl">📚</span>แผนกวิชา</a></li>
+    <li><a href="#news" class="flex flex-col items-center gap-1 py-6 hover:bg-paper font-head font-medium text-ink"><span class="text-3xl">📰</span>ข่าวสาร</a></li>
+    <li><a href="#" class="flex flex-col items-center gap-1 py-6 hover:bg-paper font-head font-medium text-ink"><span class="text-3xl">📞</span>ติดต่อเรา</a></li>
+  </ul>
+</section>
+
+<!-- ข่าว -->
+<section id="news" class="max-w-6xl mx-auto px-4 mt-14">
+  <div class="flex items-end justify-between mb-5">
+    <h2 class="font-head text-2xl font-semibold text-ink">ข่าวสารล่าสุด</h2>
+    <a href="#" class="text-brand font-medium">ข่าวทั้งหมด</a>
+  </div>
+  <div class="grid gap-5 lg:grid-cols-2">
+    <a href="#" class="group block bg-white border hover:border-brand transition-colors">
+      <div class="aspect-[16/10] bg-gradient-to-br from-ink to-slate-500"></div>
+      <div class="p-4">
+        <p class="text-sm text-slate-500">3 พฤศจิกายน 2026 · ข่าวประชาสัมพันธ์</p>
+        <h3 class="mt-1 font-head font-medium text-ink group-hover:text-brand">ต้อนรับนักเรียนใหม่ ปีการศึกษาใหม่</h3>
+      </div>
+    </a>
+    <div class="grid gap-5 sm:grid-cols-2">
+      <a href="#" class="group block bg-white border hover:border-brand transition-colors">
+        <div class="aspect-[16/10] bg-gradient-to-br from-slate-600 to-ink"></div>
+        <div class="p-4"><p class="text-sm text-slate-500">1 พฤศจิกายน 2026</p>
+          <h3 class="mt-1 font-head font-medium text-ink group-hover:text-brand">นักศึกษาคว้ารางวัลการแข่งขันทักษะวิชาชีพ</h3></div>
+      </a>
+      <a href="#" class="group block bg-white border hover:border-brand transition-colors">
+        <div class="aspect-[16/10] bg-gradient-to-br from-ink to-slate-500"></div>
+        <div class="p-4"><p class="text-sm text-slate-500">28 ตุลาคม 2026</p>
+          <h3 class="mt-1 font-head font-medium text-ink group-hover:text-brand">ขอเชิญร่วมงานวันไหว้ครู</h3></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ประกาศ + แผนก -->
+<section class="max-w-6xl mx-auto px-4 mt-14 grid gap-10 lg:grid-cols-3">
+  <div>
+    <h2 class="font-head text-2xl font-semibold text-ink mb-4">ประกาศ</h2>
+    <ul class="divide-y border-y">
+      <li class="py-3"><a href="#" class="hover:text-brand">ประกาศรายชื่อผู้มีสิทธิ์เข้าศึกษาต่อ</a><p class="text-sm text-slate-500">3 พฤศจิกายน 2026</p></li>
+      <li class="py-3"><a href="#" class="hover:text-brand">ปฏิทินการศึกษาภาคเรียนนี้</a><p class="text-sm text-slate-500">1 พฤศจิกายน 2026</p></li>
+    </ul>
+  </div>
+  <div id="depts" class="lg:col-span-2">
+    <h2 class="font-head text-2xl font-semibold text-ink mb-4">แผนกวิชา</h2>
+    <ul class="grid sm:grid-cols-2 gap-3">
+      <li class="bg-paper border-l-4 border-brand px-4 py-4"><a href="#" class="font-head font-medium text-ink hover:text-brand">ช่างยนต์</a></li>
+      <li class="bg-paper border-l-4 border-brand px-4 py-4"><a href="#" class="font-head font-medium text-ink hover:text-brand">ช่างไฟฟ้ากำลัง</a></li>
+      <li class="bg-paper border-l-4 border-brand px-4 py-4"><a href="#" class="font-head font-medium text-ink hover:text-brand">อิเล็กทรอนิกส์</a></li>
+      <li class="bg-paper border-l-4 border-brand px-4 py-4"><a href="#" class="font-head font-medium text-ink hover:text-brand">การบัญชี</a></li>
+      <li class="bg-paper border-l-4 border-brand px-4 py-4"><a href="#" class="font-head font-medium text-ink hover:text-brand">คอมพิวเตอร์ธุรกิจ</a></li>
+      <li class="bg-paper border-l-4 border-brand px-4 py-4"><a href="#" class="font-head font-medium text-ink hover:text-brand">การตลาด</a></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer class="bg-ink text-slate-300 mt-16">
+  <div class="max-w-6xl mx-auto px-4 py-10 grid gap-6 md:grid-cols-2">
+    <div>
+      <p class="font-head text-white text-lg font-semibold">วิทยาลัยอาชีวศึกษานครราชสีมา</p>
+      <p class="mt-2">จังหวัดนครราชสีมา</p>
+    </div>
+    <div class="md:text-right">
+      <p>โทร 044-000-000</p>
+      <p>info@example.ac.th</p>
+    </div>
+  </div>
+  <div class="border-t border-white/10 text-center text-sm py-4">สงวนลิขสิทธิ์ วิทยาลัยอาชีวศึกษานครราชสีมา</div>
+</footer>
+
+<script>
+var b = document.getElementById('navbtn'), n = document.getElementById('mnav');
+b.addEventListener('click', function () {
+  var hidden = n.classList.toggle('hidden');
+  b.setAttribute('aria-expanded', String(!hidden));
+});
+(function () {
+  var s = [].slice.call(document.querySelectorAll('.slide')), i = 0, t;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function go(k) { s[i].classList.add('hidden'); i = (k + s.length) % s.length; s[i].classList.remove('hidden'); }
+  function auto() { if (!reduce) { clearInterval(t); t = setInterval(function () { go(i + 1); }, 6000); } }
+  document.getElementById('next').onclick = function () { go(i + 1); auto(); };
+  document.getElementById('prev').onclick = function () { go(i - 1); auto(); };
+  auto();
+})();
+</script>
+</body>
+</html>

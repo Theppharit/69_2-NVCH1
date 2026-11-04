@@ -1,0 +1,4 @@
+{"version":"2.0.0","tasks":[
+ {"label":"1) migrate","type":"shell","command":"python manage.py makemigrations core && python manage.py migrate"},
+ {"label":"2) seed ข้อมูลตัวอย่าง","type":"shell","command":"python manage.py seed"},
+ {"label":"3) createsuperuser","type":"shell","command":"python manage.py createsuperuser"}]}

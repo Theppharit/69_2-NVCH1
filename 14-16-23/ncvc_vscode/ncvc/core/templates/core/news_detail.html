@@ -1,0 +1,8 @@
+{% extends "core/base.html" %}
+{% block title %}{{ n.title }}{% endblock %}
+{% block content %}<article class="max-w-3xl mx-auto px-4 py-10">
+ <a href="{% url 'news_list' %}" class="text-brand">← กลับไปหน้าข่าว</a>
+ <h1 class="text-3xl font-bold mt-3">{{ n.title }}</h1>
+ <div class="text-sm text-slate-500 mt-1">{{ n.published|date:"j F Y" }} · {{ n.get_category_display }}</div>
+ {% if n.image %}<img src="{{ n.image.url }}" class="rounded-xl my-6 w-full" alt="">{% endif %}
+ <div class="leading-8 whitespace-pre-line">{{ n.content }}</div></article>{% endblock %}

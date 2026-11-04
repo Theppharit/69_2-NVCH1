@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .prose-body { @apply leading-8 text-slate-700 max-w-3xl; }
+  .prose-body h2 { @apply font-head text-2xl font-semibold text-ink mt-8 mb-3; }
+  .prose-body p { @apply mb-4; }
+  .prose-body img { @apply rounded my-4; }
+  .prose-body a { @apply text-brand underline; }
+}

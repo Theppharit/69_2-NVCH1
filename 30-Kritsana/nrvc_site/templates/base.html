@@ -1,0 +1,88 @@
+{% load static %}<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{{ site.name_th }}{% endblock %}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Sarabun:wght@400;500;600&display=swap" rel="stylesheet">
+{% if USE_CDN %}
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>tailwind.config={theme:{extend:{colors:{ink:'#16233F',brand:'#E8590C',paper:'#F5F6F8'},fontFamily:{head:['Prompt','sans-serif'],body:['Sarabun','sans-serif']}}}}</script>
+<style type="text/tailwindcss">
+.prose-body{@apply leading-8 text-slate-700 max-w-3xl}
+.prose-body h2{@apply font-head text-2xl font-semibold text-ink mt-8 mb-3}
+.prose-body p{@apply mb-4}
+.prose-body img{@apply rounded my-4}
+.prose-body a{@apply text-brand underline}
+</style>
+{% else %}<link rel="stylesheet" href="{% static 'css/output.css' %}">{% endif %}
+</head>
+<body class="font-body text-slate-800 bg-white antialiased">
+
+<div class="bg-ink text-slate-200 text-sm">
+  <div class="max-w-6xl mx-auto px-4 py-2 flex flex-wrap items-center justify-between gap-2">
+    <span>{% if site.phone %}โทร {{ site.phone }}{% endif %}{% if site.email %} &nbsp;|&nbsp; {{ site.email }}{% endif %}</span>
+    <form action="{% url 'news_list' %}" class="flex">
+      <input name="q" placeholder="ค้นหาข่าว" aria-label="ค้นหาข่าว" class="px-3 py-1 text-slate-800 rounded-l w-40 sm:w-56">
+      <button class="bg-brand px-3 rounded-r text-white">ค้นหา</button>
+    </form>
+  </div>
+</div>
+
+<header class="bg-white border-b sticky top-0 z-40">
+  <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-20">
+    <a href="{% url 'home' %}" class="flex items-center gap-3">
+      {% if site.logo %}<img src="{{ site.logo.url }}" alt="" class="h-14 w-14 object-contain">
+      {% else %}<span class="h-14 w-14 grid place-items-center bg-brand text-white font-head font-bold text-xl rounded">นม</span>{% endif %}
+      <span class="leading-tight">
+        <span class="block font-head font-semibold text-ink text-lg">{{ site.name_th }}</span>
+        <span class="block text-xs text-slate-500">{{ site.name_en }}</span>
+      </span>
+    </a>
+    <nav class="hidden lg:block" aria-label="เมนูหลัก">
+      <ul class="flex gap-1 font-medium">
+        {% for m in menu %}
+        <li class="relative group">
+          <a href="{{ m.url|default:'#' }}" class="block px-4 py-2 rounded hover:text-brand">{{ m.title }}{% if m.active_children %} ▾{% endif %}</a>
+          {% if m.active_children %}
+          <ul class="hidden group-hover:block group-focus-within:block absolute left-0 top-full bg-white border shadow-lg min-w-52 py-2">
+            {% for c in m.active_children %}<li><a href="{{ c.url|default:'#' }}" class="block px-4 py-2 hover:bg-paper hover:text-brand">{{ c.title }}</a></li>{% endfor %}
+          </ul>{% endif %}
+        </li>{% endfor %}
+      </ul>
+    </nav>
+    <button id="navbtn" class="lg:hidden px-3 py-2 border rounded" aria-controls="mnav" aria-expanded="false">เมนู</button>
+  </div>
+  <ul id="mnav" class="hidden lg:hidden border-t bg-white px-4 py-2">
+    {% for m in menu %}
+    <li><a href="{{ m.url|default:'#' }}" class="block py-2 font-medium">{{ m.title }}</a>
+      {% for c in m.active_children %}<a href="{{ c.url|default:'#' }}" class="block py-1 pl-4 text-slate-600">{{ c.title }}</a>{% endfor %}
+    </li>{% endfor %}
+  </ul>
+</header>
+
+<main>{% block content %}{% endblock %}</main>
+
+<footer class="bg-ink text-slate-300 mt-16">
+  <div class="max-w-6xl mx-auto px-4 py-10 grid gap-6 md:grid-cols-2">
+    <div>
+      <p class="font-head text-white text-lg font-semibold">{{ site.name_th }}</p>
+      <p class="mt-2 whitespace-pre-line">{{ site.address }}</p>
+    </div>
+    <div class="md:text-right">
+      {% if site.phone %}<p>โทร {{ site.phone }}</p>{% endif %}
+      {% if site.email %}<p>{{ site.email }}</p>{% endif %}
+      {% if site.facebook %}<a href="{{ site.facebook }}" class="text-brand underline">Facebook</a>{% endif %}
+    </div>
+  </div>
+  <div class="border-t border-white/10 text-center text-sm py-4">{{ site.footer_text }}</div>
+</footer>
+<script>
+var b=document.getElementById('navbtn'),n=document.getElementById('mnav');
+b.addEventListener('click',function(){var o=n.classList.toggle('hidden');b.setAttribute('aria-expanded',String(!o));});
+</script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}ข่าวประชาสัมพันธ์ | {{ site.name_th }}{% endblock %}
+
+{% block content %}
+<section class="bg-brand-700 text-white">
+  <div class="max-w-7xl mx-auto px-4 py-10">
+    <h1 class="text-3xl font-bold">ข่าวประชาสัมพันธ์</h1>
+    <p class="mt-1 text-brand-100">
+      {% if q %}ผลการค้นหา “{{ q }}”{% elif current_category %}หมวด: {{ current_category.name }}{% else %}ข่าวสารและกิจกรรมล่าสุด{% endif %}
+    </p>
+  </div>
+</section>
+
+<div class="max-w-7xl mx-auto px-4 pt-8">
+  <div class="flex flex-wrap gap-2 mb-6">
+    <a href="{% url 'news_list' %}" class="rounded-full px-4 py-1.5 text-sm {% if not current_category %}bg-brand-700 text-white{% else %}bg-white ring-1 ring-slate-300 hover:bg-brand-50{% endif %}">ทั้งหมด</a>
+    {% for c in categories %}
+    <a href="?category={{ c.slug }}" class="rounded-full px-4 py-1.5 text-sm {% if current_category.pk == c.pk %}bg-brand-700 text-white{% else %}bg-white ring-1 ring-slate-300 hover:bg-brand-50{% endif %}">{{ c.name }}</a>
+    {% endfor %}
+    <form method="get" class="ml-auto flex">
+      <input type="search" name="q" value="{{ q }}" placeholder="ค้นหาข่าว..." class="rounded-l-lg border border-slate-300 px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+      <button class="rounded-r-lg bg-brand-700 px-4 text-sm text-white hover:bg-brand-800">ค้นหา</button>
+    </form>
+  </div>
+
+  {% if page_obj.object_list %}
+  <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {% for n in page_obj %}{% include 'news_card.html' %}{% endfor %}
+  </div>
+
+  {% if page_obj.paginator.num_pages > 1 %}
+  <div class="mt-10 flex justify-center items-center gap-2">
+    {% if page_obj.has_previous %}
+      <a href="?{% if qs %}{{ qs }}&{% endif %}page={{ page_obj.previous_page_number }}" class="rounded-lg bg-white px-4 py-2 ring-1 ring-slate-300 hover:bg-brand-50">← ก่อนหน้า</a>
+    {% endif %}
+    <span class="px-4 text-slate-600">หน้า {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>
+    {% if page_obj.has_next %}
+      <a href="?{% if qs %}{{ qs }}&{% endif %}page={{ page_obj.next_page_number }}" class="rounded-lg bg-white px-4 py-2 ring-1 ring-slate-300 hover:bg-brand-50">ถัดไป →</a>
+    {% endif %}
+  </div>
+  {% endif %}
+  {% else %}
+  <p class="py-16 text-center text-slate-500">ไม่พบข่าวที่ตรงกับเงื่อนไข</p>
+  {% endif %}
+</div>
+{% endblock %}
