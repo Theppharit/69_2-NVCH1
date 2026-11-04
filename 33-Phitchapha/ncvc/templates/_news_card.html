@@ -1,4 +1,0 @@
-<a href="{{ n.get_absolute_url }}" class="block bg-white rounded-xl shadow hover:shadow-lg overflow-hidden transition">
-  {% if n.cover %}<img src="{{ n.cover.url }}" class="h-44 w-full object-cover" alt="">{% else %}<div class="h-44 bg-brand-soft"></div>{% endif %}
-  <div class="p-4"><span class="text-xs text-brand">{{ n.category|default:"" }} · {{ n.published|date:"j M Y" }}</span>
-  <h3 class="font-medium mt-1 line-clamp-2">{{ n.title }}</h3><p class="text-sm text-slate-500 mt-1 line-clamp-2">{{ n.summary }}</p></div></a>
