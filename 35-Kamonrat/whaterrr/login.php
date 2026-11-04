@@ -2,7 +2,7 @@
 
 if (isset($_POST['u_user'])) {
     foreach ($users as $u) {
-        if ($u['u_user'] == $_POST['u_user'] && $u['u_pass'] == $_POST['u_pass']) {
+        if ($u['u_title'] == $_POST['u_title'] && $u['u_detail'] == $_POST['u_detail']) {
             $_SESSION['u_id'] = $u['u_id'];
             if ($u['u_role'] == 'admin') header("Location: admin/admin.php");
             else header("Location: index.php");
