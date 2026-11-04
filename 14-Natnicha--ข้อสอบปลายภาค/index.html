@@ -17,7 +17,7 @@
 <body class="bg-emerald-50/40 text-slate-800 flex flex-col min-h-screen">
 
     <!-- 1. Navigation Bar -->
-    <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-emerald-100 shadow-sm">
+    <nav class="bg-white/90 backdrop-blur-md sticky top-0 z-40 border-b border-emerald-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <!-- Logo -->
@@ -32,11 +32,10 @@
                     <a href="#home" class="hover:text-emerald-600 transition">หน้าแรก</a>
                     <a href="#marketplace" class="hover:text-emerald-600 transition">ตลาดอาหารส่วนเกิน</a>
                     <a href="#impact" class="hover:text-emerald-600 transition">ผลกระทบต่อสิ่งแวดล้อม</a>
-                    <a href="#about" class="hover:text-emerald-600 transition">แนวคิด Green Digital</a>
                 </div>
                 <!-- User Profile / Cart -->
                 <div class="flex items-center space-x-4">
-                    <button class="relative p-2 text-slate-600 hover:text-emerald-600">
+                    <button id="cart-btn" onclick="toggleCartModal()" class="relative p-2 text-slate-600 hover:text-emerald-600 transition">
                         <i class="fa-solid fa-basket-shopping text-xl"></i>
                         <span id="cart-count" class="absolute -top-1 -right-1 bg-emerald-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">0</span>
                     </button>
@@ -89,12 +88,6 @@
                             <p class="text-3xl font-extrabold text-teal-600 mt-1"><span id="stat-co2">3.1</span> ตัน</p>
                         </div>
                     </div>
-                    <div class="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-2xl text-amber-900 text-sm flex items-start gap-3">
-                        <i class="fa-solid fa-lightbulb text-amber-500 text-xl mt-0.5"></i>
-                        <div>
-                            <strong class="font-semibold">รู้หรือไม่?</strong> การช่วยลดขยะอาหาร 1 มื้อ เท่ากับการช่วยประหยัดพลังงานการชาร์จสมาร์ทโฟนได้มากกว่า 40 ครั้ง!
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -124,20 +117,6 @@
                     <p class="text-emerald-200 mb-6">
                         ทุกๆ การสั่งซื้อบน EcoLoop จะถูกแปลงเป็นตัวเลขทางสิ่งแวดล้อมที่จับต้องได้ สะสมคะแนน Green Points เพื่อแลกรับสิทธิพิเศษจากพาร์ทเนอร์สายกรีน
                     </p>
-                    <ul class="space-y-4 text-emerald-100">
-                        <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-circle-check text-emerald-400 text-xl"></i>
-                            <span>แสดงค่าการลด CO₂ Real-time รายบุคคล</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-circle-check text-emerald-400 text-xl"></i>
-                            <span>ระบบ Gamification สะสมเหรียญรางวัลนักกู้โลก</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-circle-check text-emerald-400 text-xl"></i>
-                            <span>เชื่อมโยงข้อมูลขยะกับเป้าหมายความยั่งยืน (SDGs)</span>
-                        </li>
-                    </ul>
                 </div>
                 <div class="bg-emerald-800/80 p-6 rounded-3xl border border-emerald-700 shadow-2xl">
                     <h3 class="text-xl font-bold mb-4 text-emerald-300">ตัวอย่าง: บัญชีส่วนตัวของฉัน</h3>
@@ -151,38 +130,54 @@
                             <p class="text-xl font-extrabold text-amber-400"><i class="fa-solid fa-star"></i> 450 Points</p>
                         </div>
                     </div>
-                    <div class="space-y-3">
-                        <div class="bg-emerald-700/50 p-3 rounded-xl flex justify-between items-center text-sm">
-                            <span><i class="fa-solid fa-utensils text-emerald-400 mr-2"></i>อาหารช่วยชีวิตแล้ว</span>
-                            <span class="font-bold">12 มื้อ</span>
-                        </div>
-                        <div class="bg-emerald-700/50 p-3 rounded-xl flex justify-between items-center text-sm">
-                            <span><i class="fa-solid fa-cloud text-teal-300 mr-2"></i>คาร์บอนที่ช่วยลด</span>
-                            <span class="font-bold">30.0 kgCO₂e</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-12 mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="flex justify-center items-center space-x-2 mb-4">
-                <div class="w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center text-white font-bold">
-                    <i class="fa-solid fa-leaf"></i>
-                </div>
-                <span class="text-xl font-bold text-white">EcoLoop</span>
+    <!-- 5. Modal ตะกร้าสินค้า -->
+    <div id="cart-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl border border-emerald-100 relative">
+            <div class="flex justify-between items-center border-b pb-3 mb-4">
+                <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                    <i class="fa-solid fa-basket-shopping text-emerald-600"></i> ตะกร้ากู้โลกของคุณ
+                </h3>
+                <button onclick="toggleCartModal()" class="text-slate-400 hover:text-slate-600 text-xl font-bold">✕</button>
             </div>
-            <p class="text-sm">โครงการต้นแบบธุรกิจและเว็บไซต์เพื่อสิ่งแวดล้อม (Green Digital Startup Concept)</p>
-            <p class="text-xs text-slate-500 mt-4">วิทยาลัยอาชีวศึกษานครราชสีมา — ข้อสอบปลายภาควิชาการสร้างเว็บไซต์</p>
+            
+            <!-- List Items -->
+            <div id="cart-items-list" class="space-y-3 max-h-60 overflow-y-auto pr-1 mb-4">
+                <!-- JS Inject -->
+            </div>
+
+            <!-- Summary -->
+            <div class="bg-emerald-50 p-4 rounded-2xl mb-4 space-y-2 text-sm border border-emerald-100">
+                <div class="flex justify-between font-bold text-slate-800">
+                    <span>ราคารวมทั้งหมด:</span>
+                    <span id="cart-total-price" class="text-emerald-600 text-base">฿0</span>
+                </div>
+                <div class="flex justify-between text-teal-700 text-xs font-medium">
+                    <span>ลดก๊าซคาร์บอน (CO₂e) รวม:</span>
+                    <span id="cart-total-co2">0 kg</span>
+                </div>
+            </div>
+
+            <!-- Checkout Button -->
+            <button onclick="checkoutCart()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition shadow-lg flex items-center justify-center gap-2">
+                <i class="fa-solid fa-leaf"></i> ยืนยันการสั่งซื้อกู้โลก
+            </button>
+        </div>
+    </div>
+
+    <!-- 6. Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs">
+            <p>วิทยาลัยอาชีวะศึกษานครราชสีมา - จำทำโดย นางสาวณัฐณิชา วนกลาง ส.1 ทด.1 เลขที่ 14</p>
         </div>
     </footer>
 
     <!-- JavaScript Logic -->
     <script>
-        // ข้อมูลจำลองสินค้า (Surplus Items)
         const products = [
             {
                 id: 1,
@@ -213,9 +208,8 @@
             }
         ];
 
-        let cartCount = 0;
+        let cart = [];
 
-        // แสดงผลรายการสินค้าลงในหน้าเว็บ
         function renderProducts() {
             const productList = document.getElementById('product-list');
             productList.innerHTML = products.map(product => `
@@ -237,7 +231,7 @@
                         </div>
                     </div>
                     <div class="p-6 pt-0">
-                        <button onclick="addToCart()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2.5 rounded-xl transition flex items-center justify-center gap-2">
+                        <button onclick="addToCart(${product.id})" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2.5 rounded-xl transition flex items-center justify-center gap-2">
                             <i class="fa-solid fa-cart-plus"></i> เพิ่มลงตะกร้ากู้โลก
                         </button>
                     </div>
@@ -245,14 +239,81 @@
             `).join('');
         }
 
-        // ฟังก์ชันเพิ่มสินค้าในตะกร้า
-        function addToCart() {
-            cartCount++;
-            document.getElementById('cart-count').innerText = cartCount;
-            alert("เพิ่มสินค้าลงในตะกร้ากู้โลกเรียบร้อยแล้ว!");
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                cart.push(product);
+                updateCartCount();
+                renderCart();
+                alert(`เพิ่ม "${product.title}" ลงในตะกร้าเรียบร้อยแล้ว!`);
+            }
         }
 
-        // เรียกฟังก์ชันเมื่อโหลดหน้าเว็บ
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartCount();
+            renderCart();
+        }
+
+        function updateCartCount() {
+            document.getElementById('cart-count').innerText = cart.length;
+        }
+
+        function toggleCartModal() {
+            const modal = document.getElementById('cart-modal');
+            modal.classList.toggle('hidden');
+        }
+
+        function renderCart() {
+            const cartList = document.getElementById('cart-items-list');
+            const totalPriceEl = document.getElementById('cart-total-price');
+            const totalCo2El = document.getElementById('cart-total-co2');
+
+            if (cart.length === 0) {
+                cartList.innerHTML = `<p class="text-center text-slate-400 py-6">ยังไม่มีสินค้าในตะกร้า</p>`;
+                totalPriceEl.innerText = `฿0`;
+                totalCo2El.innerText = `0 kg`;
+                return;
+            }
+
+            let totalPrice = 0;
+            let totalCo2 = 0;
+
+            cartList.innerHTML = cart.map((item, index) => {
+                totalPrice += item.price;
+                totalCo2 += parseFloat(item.co2Saved);
+                return `
+                    <div class="flex justify-between items-center bg-slate-50 p-3 rounded-xl border border-slate-100">
+                        <div class="flex items-center gap-3">
+                            <img src="${item.img}" class="w-12 h-12 rounded-lg object-cover">
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">${item.title}</h4>
+                                <p class="text-xs text-emerald-600 font-medium">฿${item.price} (ลด CO₂ ${item.co2Saved})</p>
+                            </div>
+                        </div>
+                        <button onclick="removeFromCart(${index})" class="text-rose-500 hover:text-rose-700 text-xs px-2 py-1">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+            }).join('');
+
+            totalPriceEl.innerText = `฿${totalPrice}`;
+            totalCo2El.innerText = `${totalCo2.toFixed(1)} kg`;
+        }
+
+        function checkoutCart() {
+            if (cart.length === 0) {
+                alert("กรุณาเลือกสินค้าลงตะกร้าก่อนทำการสั่งซื้อครับ");
+                return;
+            }
+            alert("🎉 สั่งซื้อสำเร็จ! ขอบคุณที่ร่วมเป็นส่วนหนึ่งในการกู้โลกและลดขยะอาหารครับ");
+            cart = [];
+            updateCartCount();
+            renderCart();
+            toggleCartModal();
+        }
+
         window.onload = renderProducts;
     </script>
 </body>
