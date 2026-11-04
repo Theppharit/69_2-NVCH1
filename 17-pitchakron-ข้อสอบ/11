@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>เหลือกิน – แพลตฟอร์มช่วยอาหารเหลือ ลดขยะ ลดโลกร้อน</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav><div class="wrap"><b>🌿 เหลือกิน</b><a href="#problem">ปัญหา</a><a href="#dt">Design Thinking</a><a href="#bmc">BMC</a><a href="#how">วิธีใช้</a></div></nav>
+
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <h1>อาหารดีๆ ที่เหลือ<br><span>อย่าให้กลายเป็นขยะ</span></h1>
+    <p>เหลือกิน คือแพลตฟอร์มที่เชื่อมร้านอาหาร เบเกอรี่ และร้านสะดวกซื้อ กับผู้บริโภค เพื่อขายอาหารคุณภาพดีที่ใกล้หมดวันในราคาลด 30–70%</p>
+    <a class="btn" href="#how">ดูวิธีใช้งาน</a><a class="btn alt" href="#bmc">โมเดลธุรกิจ</a>
+  </div>
+  <img src="images/hero.jpg" alt="ขนมปังและอาหารสดที่ช่วยลดขยะอาหาร" class="hero-img">
+</div></header>
+<section id="problem"><div class="wrap">
+<h2>ปัญหาที่เราแก้</h2><p class="sub">ขยะอาหารคือต้นเหตุสำคัญของก๊าซมีเทนในหลุมฝังกลบ</p>
+<div class="grid">
+<div class="card"><div class="stat">1 ใน 3</div><p>ของอาหารที่ผลิตทั่วโลกถูกทิ้งเปล่า</p></div>
+<div class="card"><div class="stat">8–10%</div><p>ของก๊าซเรือนกระจกโลกมาจากอาหารที่ไม่ได้ถูกกิน (ประมาณการโดยหน่วยงานระหว่างประเทศ)</p></div>
+<div class="card"><div class="stat">ทุกวัน</div><p>ร้านอาหารและเบเกอรี่ในเมืองมีของเหลือหลังปิดร้านโดยไม่มีช่องทางขาย</p></div>
+</div></div></section>
+
+<section id="dt"><div class="wrap">
+<h2>กระบวนการ Design Thinking</h2><p class="sub">5 ขั้นตอนจากความเข้าใจผู้ใช้ สู่ต้นแบบเว็บไซต์</p>
+<div class="grid">
+<div class="card"><h3>1. Empathize</h3><p>สัมภาษณ์เจ้าของร้านเบเกอรี่ นักศึกษา และคนวัยทำงาน พบว่าร้านเสียดายของที่ทิ้ง ส่วนผู้บริโภคอยากประหยัดแต่ไม่รู้ว่าที่ไหนมีของลดราคา</p></div>
+<div class="card"><h3>2. Define</h3><p>ร้านค้าต้องการลดต้นทุนจากของเหลือ ผู้บริโภคต้องการอาหารดีราคาถูกที่หาง่ายและไว้ใจได้</p></div>
+<div class="card"><h3>3. Ideate</h3><p>ระดมไอเดีย: แผนที่ร้านใกล้ตัว กล่องสุ่ม (Surprise Box) ระบบแจ้งเตือนก่อนปิดร้าน แต้มสะสมลดคาร์บอน</p></div>
+<div class="card"><h3>4. Prototype</h3><p>ออกแบบเว็บไซต์ที่ค้นหา จอง และจ่ายได้ใน 3 ขั้นตอน พร้อมตัวนับปริมาณขยะที่ช่วยลดได้</p></div>
+<div class="card"><h3>5. Test</h3><p>ให้ผู้ใช้ 10 คนลองจองผ่านต้นแบบ แล้วปรับปุ่มและข้อความให้เข้าใจง่ายขึ้น</p></div>
+</div></div></section>
+
+<section id="bmc"><div class="wrap">
+<h2>Business Model Canvas</h2><p class="sub">สรุปโมเดลธุรกิจของเหลือกิน</p>
+<div class="bmc">
+<div class="card"><h3>Key Partners</h3><ul><li>ร้านอาหาร เบเกอรี่</li><li>ร้านสะดวกซื้อ</li><li>ผู้ให้บริการส่ง</li></ul></div>
+<div class="card"><h3>Key Activities</h3><ul><li>พัฒนาแพลตฟอร์ม</li><li>หาร้านพันธมิตร</li><li>การตลาดออนไลน์</li></ul></div>
+<div class="card w2"><h3>Value Propositions</h3><ul><li>ลูกค้า: อาหารดีราคาถูกลง 30–70%</li><li>ร้านค้า: เปลี่ยนของเหลือเป็นรายได้</li><li>สังคม: ลดขยะและก๊าซเรือนกระจก</li></ul></div>
+<div class="card"><h3>Customer Relationships</h3><ul><li>แจ้งเตือนผ่านแอปและไลน์</li><li>แต้มสะสม</li><li>รีวิวร้าน</li></ul></div>
+<div class="card"><h3>Customer Segments</h3><ul><li>นักศึกษา คนทำงาน</li><li>ผู้รักสิ่งแวดล้อม</li><li>ร้านค้า SME</li></ul></div>
+<div class="card"><h3>Key Resources</h3><ul><li>เว็บไซต์และฐานข้อมูล</li><li>เครือข่ายร้าน</li><li>ทีมงาน</li></ul></div>
+<div class="card"><h3>Channels</h3><ul><li>เว็บไซต์ / มือถือ</li><li>Facebook, TikTok</li><li>กิจกรรมในมหาวิทยาลัย</li></ul></div>
+<div class="card w2"><h3>Cost Structure</h3><ul><li>พัฒนาและดูแลระบบ</li><li>การตลาดและส่งเสริมร้านพันธมิตร</li><li>ค่าธรรมเนียมชำระเงิน</li></ul></div>
+<div class="card w2"><h3>Revenue Streams</h3><ul><li>ค่าคอมมิชชัน 10–15% ต่อออเดอร์</li><li>แพ็กเกจโปรโมทร้านให้โดดเด่น</li><li>สปอนเซอร์องค์กรที่สนับสนุนโครงการ ESG</li></ul></div>
+</div></div></section>
+
+<section id="how"><div class="wrap">
+<h2>ใช้งานง่ายใน 3 ขั้นตอน</h2><p class="sub">จากเปิดเว็บไซต์ ถึงได้กินอาหารอร่อยในราคาประหยัด</p>
+<div class="grid">
+<div class="card"><h3>🔍 ค้นหา</h3><p>เลือกร้านที่มีของเหลือใกล้คุณ ดูราคาและเวลารับ</p></div>
+<div class="card"><h3>📲 จอง</h3><p>กดจองและชำระเงินออนไลน์ ได้รหัสรับอาหารทันที</p></div>
+<div class="card"><h3>🌱 รับและช่วยโลก</h3><p>รับที่ร้านก่อนปิด แล้วดูผลลัพธ์ว่าคุณลดคาร์บอนไปเท่าไร</p></div>
+</div>
+<p style="margin-top:28px"><a class="btn" href="#bmc">สมัครเป็นร้านพันธมิตร (ตัวอย่าง)</a></p>
+</div></section>
+
+<footer><div class="wrap">เหลือกิน – โครงงาน Green Digital · ตัวเลขสถิติเป็นการประมาณการทั่วไป ควรอ้างอิงแหล่งข้อมูลทางการในรายงานฉบับเต็ม</div></footer>
+</body>
+</html>
