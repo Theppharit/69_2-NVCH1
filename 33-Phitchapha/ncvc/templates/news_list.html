@@ -1,4 +1,0 @@
-{% extends "base.html" %}{% block content %}<div class="max-w-7xl mx-auto px-4 mt-10">
-<h1 class="text-2xl font-semibold text-brand-dark mb-6">ข่าวสารทั้งหมด</h1>
-<div class="grid md:grid-cols-3 gap-6">{% for n in page %}{% include "_news_card.html" %}{% endfor %}</div>
-<div class="mt-8 flex gap-4 justify-center">{% if page.has_previous %}<a class="text-brand" href="?page={{ page.previous_page_number }}">← ก่อนหน้า</a>{% endif %}<span>{{ page.number }}/{{ page.paginator.num_pages }}</span>{% if page.has_next %}<a class="text-brand" href="?page={{ page.next_page_number }}">ถัดไป →</a>{% endif %}</div></div>{% endblock %}
