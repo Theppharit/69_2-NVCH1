@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Share | แบ่งปันเพื่อโลกที่ยั่งยืน</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <a href="#home" class="logo">🌱 Green Share</a>
+
+    <nav>
+        <a href="#home">หน้าแรก</a>
+        <a href="#products">สิ่งของทั้งหมด</a>
+        <a href="#add">ลงประกาศ</a>
+        <a href="#about">เกี่ยวกับเรา</a>
+        <a href="#contact">ติดต่อเรา</a>
+    </nav>
+
+    <button id="themeBtn" class="theme-btn">🌙</button>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <span class="tag">🌍 GREEN DIGITAL PROJECT</span>
+        <h1>ของที่คุณไม่ใช้<br>อาจมีค่า дляใครอีกคน</h1>
+        <p>ร่วมแบ่งปันสิ่งของเหลือใช้ ลดขยะ และสร้างโลกที่น่าอยู่ไปด้วยกัน</p>
+        <a href="#products" class="main-btn">เริ่มแบ่งปันเลย →</a>
+    </div>
+    <div class="hero-picture">🌳🌎🌱</div>
+</section>
+
+<section class="stats">
+    <div class="stat-box">
+        <h2 id="itemCount">0</h2>
+        <p>รายการสิ่งของ</p>
+    </div>
+    <div class="stat-box">
+        <h2>🌱</h2>
+        <p>ช่วยลดขยะ</p>
+    </div>
+    <div class="stat-box">
+        <h2 id="favoriteCount">0</h2>
+        <p>รายการโปรดของคุณ</p>
+    </div>
+</section>
+
+<section class="products section" id="products">
+    <div class="section-heading">
+        <div>
+            <span class="tag">SHARE & REUSE</span>
+            <h2>🌿 สิ่งของที่กำลังแบ่งปัน</h2>
+            <p>เลือกสิ่งของที่คุณสนใจและติดต่อผู้ลงประกาศได้เลย</p>
+        </div>
+    </div>
+
+    <div class="search-area">
+        <input type="text" id="searchInput"
+            placeholder="🔍 ค้นหาสิ่งของที่ต้องการ...">
+
+        <select id="categoryFilter">
+            <option value="ทั้งหมด">ทุกหมวดหมู่</option>
+            <option value="เสื้อผ้า">เสื้อผ้า</option>
+            <option value="หนังสือ">หนังสือ</option>
+            <option value="กระเป๋า">กระเป๋า</option>
+            <option value="ของใช้ในบ้าน">ของใช้ในบ้าน</option>
+            <option value="อิเล็กทรอนิกส์">อิเล็กทรอนิกส์</option>
+            <option value="อื่นๆ">อื่นๆ</option>
+        </select>
+    </div>
+
+    <div id="productList" class="product-grid"></div>
+    <p id="emptyMessage" class="empty-message" hidden>ไม่พบสิ่งของที่ค้นหา 🌱</p>
+</section>
+
+<section class="add-section section" id="add">
+    <div class="form-card">
+        <span class="tag">GIVE YOUR ITEMS A NEW LIFE</span>
+        <h2>➕ ลงประกาศแบ่งปันสิ่งของ</h2>
+        <p>มีสิ่งของที่ไม่ได้ใช้แล้วใช่ไหม? ส่งต่อให้คนที่ต้องการได้เลย</p>
+
+        <form id="addForm">
+            <label>ชื่อสิ่งของ</label>
+            <input id="itemName" type="text" placeholder="เช่น เสื้อยืดสีเขียว" required>
+
+            <label>หมวดหมู่</label>
+            <select id="itemCategory" required>
+                <option value="">เลือกหมวดหมู่</option>
+                <option>เสื้อผ้า</option>
+                <option>หนังสือ</option>
+                <option>กระเป๋า</option>
+                <option>ของใช้ในบ้าน</option>
+                <option>อิเล็กทรอนิกส์</option>
+                <option>อื่นๆ</option>
+            </select>
+
+            <label>รายละเอียดสิ่งของ</label>
+            <textarea id="itemDescription" placeholder="อธิบายสภาพและรายละเอียดสิ่งของ" required></textarea>
+
+            <label>สถานที่นัดรับ</label>
+            <input id="itemLocation" type="text" placeholder="เช่น นครราชสีมา" required>
+
+            <label>ช่องทางติดต่อ</label>
+            <input id="itemContact" type="text" placeholder="เบอร์โทรหรือ Line ID" required>
+
+            <button type="submit" class="main-btn full-btn">ลงประกาศแบ่งปัน 🌱</button>
+        </form>
+    </div>
+</section>
+
+<section class="how section">
+    <span class="tag">HOW IT WORKS</span>
+    <h2>วิธีใช้งาน Green Share</h2>
+
+    <div class="steps">
+        <div class="step-card">
+            <div class="step-icon">📦</div>
+            <h3>1. ลงประกาศ</h3>
+            <p>นำสิ่งของที่ไม่ได้ใช้แล้วมาลงประกาศ</p>
+        </div>
+        <div class="step-card">
+            <div class="step-icon">🔎</div>
+            <h3>2. ค้นหาสิ่งของ</h3>
+            <p>เลือกดูสิ่งของที่ตรงกับความต้องการ</p>
+        </div>
+        <div class="step-card">
+            <div class="step-icon">🤝</div>
+            <h3>3. ติดต่อรับของ</h3>
+            <p>ติดต่อผู้แบ่งปันเพื่อนัดรับสิ่งของ</p>
+        </div>
+    </div>
+</section>
+
+<section class="about section" id="about">
+    <div>
+        <span class="tag">ABOUT GREEN SHARE</span>
+        <h2>แบ่งปันวันนี้ เพื่อโลกที่ดีกว่า 🌎</h2>
+        <p>
+            Green Share คือเว็บไซต์ที่เป็นสื่อกลางในการแบ่งปัน
+            และส่งต่อสิ่งของเหลือใช้ เพื่อให้สิ่งของที่ยังมีประโยชน์
+            ได้กลับมาใช้งานอีกครั้ง ช่วยลดปริมาณขยะ
+            ส่งเสริมการใช้ทรัพยากรอย่างคุ้มค่า และสร้างสังคมแห่งการแบ่งปัน
+        </p>
+    </div>
+    <div class="about-icon">🌱♻️🌍</div>
+</section>
+
+<section class="contact section" id="contact">
+    <h2>มาร่วมเป็นส่วนหนึ่งกับเรา</h2>
+    <p>ทุกการแบ่งปันเล็ก ๆ สามารถสร้างความเปลี่ยนแปลงให้โลกได้</p>
+    <a href="#add" class="main-btn">ร่วมแบ่งปันเลย</a>
+</section>
+
+<footer>
+    <h2>🌱 Green Share</h2>
+    <p>ของที่คุณไม่ใช้ อาจเป็นประโยชน์สำหรับใครอีกคน</p>
+    <p>© 2026 Green Share | เว็บไซต์เพื่อสิ่งแวดล้อม</p>
+</footer>
+
+<div id="toast" class="toast"></div>
+<button id="topBtn" class="top-btn" aria-label="กลับขึ้นด้านบน">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Green Road | ถนนอากาศสะอาด</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#f4f9f4;color:#263b2d}
+header{background:#176b45;color:white;padding:18px 8%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.logo{font-size:25px;font-weight:bold}
+nav{display:flex;flex-wrap:wrap;gap:20px}
+nav a{color:white;text-decoration:none;font-size:15px}
+nav a:hover{color:#b8f5c8}
+.hero{padding:85px 8%;background:linear-gradient(120deg,#d9f4df,#a9dfb5);display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.hero-text{max-width:550px}
+.hero h1{font-size:42px;color:#176b45;margin-bottom:20px}
+.hero p{font-size:17px;line-height:1.8;margin-bottom:25px}
+.btn{display:inline-block;background:#176b45;color:white;padding:13px 25px;border-radius:8px;text-decoration:none;border:0;cursor:pointer}
+.btn:hover{background:#0d4d30}
+.hero-icon{font-size:140px}
+section{padding:60px 8%}
+.section-title{text-align:center;color:#176b45;font-size:30px;margin-bottom:35px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px}
+.card{background:white;padding:28px;border-radius:15px;text-align:center;box-shadow:0 3px 12px #00000010}
+.card h3{color:#176b45;margin:15px 0}
+.card p{line-height:1.7;color:#647368}
+.icon{font-size:45px}
+.air{background:#e3f3e7;text-align:center}
+.aqi{font-size:55px;font-weight:bold;color:#279b55;margin:15px}
+.report{max-width:600px;margin:auto;background:white;padding:30px;border-radius:15px;box-shadow:0 3px 12px #00000010}
+input,textarea,select{width:100%;padding:13px;margin:10px 0 18px;border:1px solid #ccc;border-radius:7px;font-size:15px}
+label{font-weight:bold}
+.report button{width:100%;font-size:16px}
+.tips{background:#176b45;color:white;text-align:center}
+.tips .section-title{color:white}
+.tips p{line-height:2}
+footer{background:#103f2a;color:white;text-align:center;padding:25px;line-height:1.8}
+@media(max-width:600px){header{justify-content:center}nav{justify-content:center;gap:12px}.hero h1{font-size:30px}.hero-icon{font-size:90px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">🌿 GREEN ROAD</div>
+  <nav>
+    <a href="#home">หน้าหลัก</a><a href="#about">เกี่ยวกับเรา</a>
+    <a href="#air">คุณภาพอากาศ</a><a href="#report">แจ้งปัญหา</a>
+  </nav>
+</header>
+
+<main>
+<div class="hero" id="home">
+  <div class="hero-text">
+    <h1>ร่วมสร้างถนน<br>อากาศสะอาด</h1>
+    <p>แพลตฟอร์มดิจิทัลเพื่อสิ่งแวดล้อม ช่วยแจ้งเตือนปัญหาฝุ่นควัน มลพิษ และส่งเสริมการเดินทางที่เป็นมิตรต่อโลก</p>
+    <a href="#report" class="btn">แจ้งปัญหาสิ่งแวดล้อม</a>
+  </div>
+  <div class="hero-icon" aria-hidden="true">🌳</div>
+</div>
+
+<section id="about">
+  <h2 class="section-title">เกี่ยวกับ Green Road</h2>
+  <div class="cards">
+    <article class="card"><div class="icon">🌫️</div><h3>ลดปัญหาฝุ่น PM2.5</h3><p>ส่งเสริมการเฝ้าระวังและแจ้งเตือนพื้นที่ที่มีฝุ่นควัน</p></article>
+    <article class="card"><div class="icon">📍</div><h3>แจ้งจุดมลพิษ</h3><p>เปิดโอกาสให้ประชาชนแจ้งปัญหาสิ่งแวดล้อมตามท้องถนน</p></article>
+    <article class="card"><div class="icon">🚲</div><h3>เดินทางรักษ์โลก</h3><p>สนับสนุนการเดินทางที่ช่วยลดการปล่อยก๊าซและควันพิษ</p></article>
+  </div>
+</section>
+
+<section class="air" id="air">
+  <h2 class="section-title">คุณภาพอากาศ</h2>
+  <div class="card">
+    <h3>ตัวอย่างค่าฝุ่น PM2.5</h3>
+    <div class="aqi">25</div>
+    <h3>ข้อมูลตัวอย่าง</h3>
+    <p>ค่าที่แสดงเป็นข้อมูลจำลอง ไม่ใช่ค่าตรวจวัดแบบเรียลไทม์</p>
+  </div>
+</section>
+
+<section id="report">
+  <h2 class="section-title">แจ้งปัญหาสิ่งแวดล้อม</h2>
+  <div class="report">
+    <form id="reportForm">
+      <label for="name">ชื่อผู้แจ้ง</label>
+      <input type="text" id="name" placeholder="กรอกชื่อของคุณ" required>
+      <label for="problem">ประเภทปัญหา</label>
+      <select id="problem" required>
+        <option value="">-- เลือกปัญหา --</option>
+        <option>ฝุ่นควัน PM2.5</option><option>ควันจากรถยนต์</option>
+        <option>การเผาขยะ</option><option>ขยะบนท้องถนน</option><option>อื่น ๆ</option>
+      </select>
+      <label for="location">สถานที่เกิดปัญหา</label>
+      <input type="text" id="location" placeholder="ระบุสถานที่" required>
+      <label for="detail">รายละเอียดเพิ่มเติม</label>
+      <textarea id="detail" rows="4" placeholder="อธิบายปัญหาที่พบ"></textarea>
+      <button type="submit" class="btn">ส่งข้อมูลแจ้งปัญหา</button>
+    </form>
+  </div>
+</section>
+
+<section class="tips">
+  <h2 class="section-title">ร่วมกันรักษาสิ่งแวดล้อม</h2>
+  <p>🌱 ลดการใช้รถยนต์ส่วนตัว<br>🌱 ใช้ระบบขนส่งสาธารณะ<br>🌱 ไม่เผาขยะหรือวัสดุเหลือใช้<br>🌱 ปลูกต้นไม้เพิ่มพื้นที่สีเขียว<br>🌱 ช่วยกันดูแลความสะอาดบนท้องถนน</p>
+</section>
+</main>
+
+<footer>
+  <h3>🌿 GREEN ROAD</h3>
+  <p>เทคโนโลยีดิจิทัลเพื่อสิ่งแวดล้อมที่ยั่งยืน</p>
+  <p>© 2026 Green Road. All Rights Reserved.</p>
+</footer>
+
+<script>
+document.getElementById("reportForm").addEventListener("submit",function(event){
+  event.preventDefault();
+  const name=document.getElementById("name").value.trim();
+  const problem=document.getElementById("problem").value;
+  const location=document.getElementById("location").value.trim();
+  alert("ส่งข้อมูลเรียบร้อยแล้ว!\\nชื่อ: "+name+"\\nปัญหา: "+problem+"\\nสถานที่: "+location+"\\n\\nหมายเหตุ: ตัวอย่างนี้ยังไม่ได้บันทึกข้อมูลลงฐานข้อมูล");
+  this.reset();
+});
+</script>
+
+<a href="#admin">จัดการข้อมูล</a>
+
+</body>
+</html>
