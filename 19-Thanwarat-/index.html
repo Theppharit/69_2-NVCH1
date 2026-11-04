@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoShare - แพลตฟอร์มเพื่อสิ่งแวดล้อมที่ยั่งยืน</title>
+    <style>
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #81c784;
+            --bg-color: #f1f8e9;
+            --text-color: #333333;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        header h1 {
+            font-size: 1.4rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 500;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .hero {
+            background: linear-gradient(rgba(46, 125, 50, 0.75), rgba(46, 125, 50, 0.75)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 1.5rem auto;
+        }
+        .btn {
+            background-color: var(--secondary-color);
+            color: #1b5e20;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: 0.2s;
+        }
+        .btn:hover {
+            background-color: #66bb6a;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        /* Dashboard / Interactive Panel */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+        }
+        /* Form & Inputs */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        /* Item List Table / Cards */
+        .item-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .item-card {
+            background: #fff;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .item-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+        }
+        .item-card p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        .badge {
+            background: #e8f5e9;
+            color: var(--primary-color);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #1b5e20;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🌱 EcoShare (Green Digital)</h1>
+        <nav>
+            <a href="#home">หน้าแรก</a>
+            <a href="#exchange">ตลาดแลกเปลี่ยน</a>
+            <a href="#points">ระบบแต้มสีเขียว</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h2>แพลตฟอร์มดิจิทัลเพื่อสังคมยั่งยืน</h2>
+        <p>แก้ปัญหาสิ่งแวดล้อม ลดขยะ และจัดการทรัพยากรชุมชนให้คุ้มค่าที่สุด</p>
+        <a href="#exchange" class="btn">ไปที่ตลาดแลกเปลี่ยน</a>
+    </section>
+
+    <div class="container" id="exchange">
+        <h2 class="section-title">🔄 ตลาดแลกเปลี่ยนสิ่งของและลด Food Waste</h2>
+        
+        <div class="dashboard-grid">
+            <!-- ฟอร์มเพิ่มประกาศสิ่งของ -->
+            <div class="card">
+                <h3>+ ลงประกาศสิ่งของ/อาหารแบ่งปัน</h3>
+                <form id="shareForm">
+                    <div class="form-group">
+                        <label for="itemName">ชื่อสิ่งของ / อาหารส่วนเกิน</label>
+                        <input type="text" id="itemName" placeholder="เช่น หนังสือเก่า, ผักสดสวนครัว" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemCategory">หมวดหมู่</label>
+                        <select id="itemCategory">
+                            <option value="สิ่งของเหลือใช้">สิ่งของเหลือใช้/รีไซเคิล</option>
+                            <option value="อาหารส่วนเกิน">อาหารส่วนเกิน (Food Waste)</option>
+                            <option value="อุปกรณ์เครื่องใช้">อุปกรณ์เครื่องใช้</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemLocation">พื้นที่/ชุมชน</label>
+                        <input type="text" id="itemLocation" placeholder="เช่น เขตจตุจักร กทม." required>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">ยืนยันลงประกาศ</button>
+                </form>
+            </div>
+
+            <!-- ระบบแต้มสีเขียว -->
+            <div class="card" id="points">
+                <h3>⭐ บัญชีแต้มสีเขียวของคุณ</h3>
+                <p>สะสมแต้มจากการแบ่งปันสิ่งของเพื่อนำไปแลกสิทธิประโยชน์รักษ์โลก</p>
+                <div style="margin: 1.5rem 0; font-size: 1.5rem; font-weight: bold; color: var(--primary-color);">
+                    แต้มสะสม: <span id="pointCount">120</span> คะแนน
+                </div>
+                <button class="btn" onclick="claimReward()" style="width: 100%; background-color: #a5d6a7;">กดรับสิทธิพิเศษส่วนลด</button>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 2rem; color: var(--primary-color);">รายการสิ่งของที่มีผู้แบ่งปันล่าสุด</h3>
+        <div class="item-list" id="itemListContainer">
+            <!-- รายการจำลองเริ่มต้น -->
+            <div class="item-card">
+                <h4>📚 หนังสือนิยายมือสองสภาพดี</h4>
+                <p><strong>หมวดหมู่:</strong> สิ่งของเหลือใช้</p>
+                <p>📍 บางเขน, กทม.</p>
+                <span class="badge">พร้อมส่งต่อ</span>
+            </div>
+            <div class="item-card">
+                <h4>🥗 ข้าวกล่องส่วนเกินจากร้านอาหาร</h4>
+                <p><strong>หมวดหมู่:</strong> อาหารส่วนเกิน</p>
+                <p>📍 ลาดพร้าว, กทม.</p>
+                <span class="badge">ด่วน (Free)</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 EcoShare Project - สอบปลายภาควิชาการสร้างเว็บไซต์[cite: 1]</p>
+    </footer>
+
+    <script>
+        // ระบบกดใช้งาน: เพิ่มรายการสิ่งของใหม่ผ่านหน้าเว็บ
+        const shareForm = document.getElementById('shareForm');
+        const itemListContainer = document.getElementById('itemListContainer');
+        const pointCountEl = document.getElementById('pointCount');
+        let currentPoints = 120;
+
+        shareForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('itemName').value;
+            const category = document.getElementById('itemCategory').value;
+            const location = document.getElementById('itemLocation').value;
+
+            // สร้างการ์ดแสดงผลรายการใหม่
+            const newItem = document.createElement('div');
+            newItem.className = 'item-card';
+            newItem.innerHTML = `
+                <h4>📦 ${name}</h4>
+                <p><strong>หมวดหมู่:</strong> ${category}</p>
+                <p>📍 ${location}</p>
+                <span class="badge">เพิ่งประกาศ</span>
+            `;
+
+            // นำไปแสดงไว้บนสุดของรายการ
+            itemListContainer.prepend(newItem);
+
+            // เพิ่มแต้มสะสมเมื่อร่วมกิจกรรม (Gamification)
+            currentPoints += 15;
+            pointCountEl.textContent = currentPoints;
+
+            alert('ลงประกาศสำเร็จ! คุณได้รับ +15 แต้มสีเขียวเพื่อเป็นการขอบคุณที่ช่วยลดขยะ');
+            shareForm.reset();
+        });
+
+        // ระบบกดใช้งาน: กดรับสิทธิพิเศษ
+        function claimReward() {
+            if (currentPoints >= 50) {
+                currentPoints -= 50;
+                pointCountEl.textContent = currentPoints;
+                alert('แลกรับส่วนลดร้านค้ารักษ์โลกสำเร็จ! ระบบได้หัก 50 คะแนนเรียบร้อย');
+            } else {
+                alert('แต้มสะสมของคุณไม่เพียงพอ (ต้องการอย่างน้อย 50 คะแนน)');
+            }
+        }
+    </script>
+
+</body>
+</html>
