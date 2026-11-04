@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoStudent | Green Digital</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f5f8f3;
+    color: #263b2b;
+}
+
+header {
+    background: #236b45;
+    color: white;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+nav a:hover {
+    color: #b9f2c7;
+}
+
+.hero {
+    padding: 75px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #d8efda, #f5f8e9);
+}
+
+.hero h1 {
+    font-size: 40px;
+    color: #236b45;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    background: #236b45;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #174b30;
+}
+
+section {
+    padding: 50px 8%;
+}
+
+.section-title {
+    text-align: center;
+    color: #236b45;
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px #00000010;
+    text-align: center;
+}
+
+.card .emoji {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: #236b45;
+}
+
+.card p {
+    margin-bottom: 15px;
+    color: #647366;
+}
+
+.points {
+    background: #e1f1df;
+    text-align: center;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.points h2 {
+    color: #236b45;
+    font-size: 38px;
+}
+
+.market-form {
+    max-width: 450px;
+    margin: 0 auto 30px;
+    display: grid;
+    gap: 12px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd8ca;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.product {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.product h3 {
+    color: #236b45;
+    margin: 10px;
+}
+
+.product .emoji {
+    font-size: 45px;
+}
+
+footer {
+    background: #236b45;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+#message {
+    color: #236b45;
+    text-align: center;
+    margin: 15px;
+}
+
+@media(max-width:600px) {
+    header {
+        justify-content: center;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 6px;
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🌱 EcoStudent</div>
+
+    <nav>
+        <a onclick="showPage('home')">หน้าหลัก</a>
+        <a onclick="showPage('mission')">กิจกรรม</a>
+        <a onclick="showPage('market')">Eco Market</a>
+        <a onclick="showPage('dashboard')">คะแนนของฉัน</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+<div id="home">
+
+    <div class="hero">
+        <h1>Let's Go Green Together! 🌍</h1>
+
+        <p>
+            ร่วมสร้างมหาวิทยาลัยสีเขียว
+            เริ่มต้นได้จากตัวคุณ
+        </p>
+
+        <button class="btn" onclick="showPage('mission')">
+            เริ่มภารกิจรักษ์โลก
+        </button>
+    </div>
+
+    <section>
+        <h2 class="section-title">🌿 เกี่ยวกับ EcoStudent</h2>
+
+        <div class="card">
+            <p>
+                EcoStudent คือแพลตฟอร์มดิจิทัล
+                ที่ส่งเสริมให้นักศึกษามีส่วนร่วม
+                ในการอนุรักษ์สิ่งแวดล้อม
+                ผ่านกิจกรรมรักษ์โลก การลดขยะ
+                และการแลกเปลี่ยนสิ่งของ
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">เป้าหมายของเรา</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="emoji">♻️</div>
+                <h3>ลดขยะ</h3>
+                <p>ส่งเสริมการคัดแยกและรีไซเคิล</p>
+            </div>
+
+            <div class="card">
+                <div class="emoji">🌳</div>
+                <h3>รักษาสิ่งแวดล้อม</h3>
+                <p>สร้างพฤติกรรมที่เป็นมิตรต่อโลก</p>
+            </div>
+
+            <div class="card">
+                <div class="emoji">🤝</div>
+                <h3>แบ่งปัน</h3>
+                <p>ส่งต่อสิ่งของที่ยังมีประโยชน์</p>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+<!-- MISSION -->
+<div id="mission" class="hidden">
+
+    <section>
+        <h2 class="section-title">🌱 ภารกิจรักษ์โลก</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="emoji">🥤</div>
+                <h3>พกแก้วน้ำส่วนตัว</h3>
+                <p>ลดการใช้แก้วพลาสติก</p>
+                <h3>10 คะแนน</h3>
+                <button class="btn" onclick="completeMission(this,10)">
+                    เข้าร่วมภารกิจ
+                </button>
+            </div>
+
+            <div class="card">
+                <div class="emoji">♻️</div>
+                <h3>แยกขยะให้ถูกถัง</h3>
+                <p>ช่วยให้ขยะนำกลับมาใช้ประโยชน์ได้</p>
+                <h3>15 คะแนน</h3>
+                <button class="btn" onclick="completeMission(this,15)">
+                    เข้าร่วมภารกิจ
+                </button>
+            </div>
+
+            <div class="card">
+                <div class="emoji">🌳</div>
+                <h3>ปลูกต้นไม้</h3>
+                <p>เพิ่มพื้นที่สีเขียว</p>
+                <h3>20 คะแนน</h3>
+                <button class="btn" onclick="completeMission(this,20)">
+                    เข้าร่วมภารกิจ
+                </button>
+            </div>
+
+            <div class="card">
+                <div class="emoji">📚</div>
+                <h3>ส่งต่อหนังสือ</h3>
+                <p>แบ่งปันหนังสือให้เพื่อน</p>
+                <h3>15 คะแนน</h3>
+                <button class="btn" onclick="completeMission(this,15)">
+                    เข้าร่วมภารกิจ
+                </button>
+            </div>
+
+        </div>
+    </section>
+</div>
+
+<!-- MARKET -->
+<div id="market" class="hidden">
+
+    <section>
+        <h2 class="section-title">🛍️ Eco Market</h2>
+
+        <p style="text-align:center;margin-bottom:25px">
+            ตลาดแลกเปลี่ยนและส่งต่อสิ่งของมือสอง
+        </p>
+
+        <div class="market-form">
+            <h3>ลงประกาศสิ่งของ</h3>
+
+            <input id="productName"
+                   type="text"
+                   placeholder="ชื่อสิ่งของ">
+
+            <input id="productPrice"
+                   type="text"
+                   placeholder="ราคา หรือพิมพ์ว่า ฟรี">
+
+            <select id="productType">
+                <option value="📚">หนังสือ</option>
+                <option value="👕">เสื้อผ้า</option>
+                <option value="🎒">กระเป๋า</option>
+                <option value="🏠">ของใช้ทั่วไป</option>
+            </select>
+
+            <button class="btn" onclick="addProduct()">
+                เพิ่มประกาศ
+            </button>
+        </div>
+
+        <div id="productList" class="cards">
+
+            <div class="product">
+                <div class="emoji">📚</div>
+                <h3>หนังสือเรียนมือสอง</h3>
+                <p>ราคา 50 บาท</p>
+            </div>
+
+            <div class="product">
+                <div class="emoji">🎒</div>
+                <h3>กระเป๋ามือสอง</h3>
+                <p>ราคา 80 บาท</p>
+            </div>
+
+        </div>
+
+        <p id="message"></p>
+    </section>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard" class="hidden">
+
+    <section>
+        <h2 class="section-title">🏆 คะแนนรักษ์โลกของฉัน</h2>
+
+        <div class="points">
+            <p>คะแนนสะสมทั้งหมด</p>
+            <h2 id="totalPoints">0</h2>
+            <p>Eco Points 🌱</p>
+        </div>
+
+        <br>
+
+        <div class="card">
+            <h3>🌍 เป้าหมายของเรา</h3>
+            <p>เริ่มต้นเปลี่ยนแปลงโลกด้วยการกระทำเล็ก ๆ</p>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <h3>🌱 EcoStudent</h3>
+    <p>Small Actions, Big Changes.</p>
+    <p>Green Digital Business Project</p>
+    <p>© 2026 EcoStudent</p>
+</footer>
+
+<script>
+
+// จัดการคะแนนและข้อมูลภารกิจ
+let points = Number(localStorage.getItem("ecoPoints")) || 0;
+
+let completed = JSON.parse(
+    localStorage.getItem("ecoMissions") || "[]"
+);
+
+function updatePoints() {
+    document.getElementById("totalPoints").innerText = points;
+    localStorage.setItem("ecoPoints", points);
+}
+
+function completeMission(button, score) {
+
+    const missionName = button.parentElement.querySelector("h3").innerText;
+
+    if (completed.includes(missionName)) {
+        alert("คุณทำภารกิจนี้ไปแล้ว!");
+        return;
+    }
+
+    completed.push(missionName);
+    points += score;
+
+    localStorage.setItem(
+        "ecoMissions",
+        JSON.stringify(completed)
+    );
+
+    updatePoints();
+
+    button.innerText = "ทำภารกิจแล้ว ✓";
+    button.disabled = true;
+
+    alert("ยินดีด้วย! คุณได้รับ " + score + " คะแนน 🌱");
+}
+
+function restoreMissions() {
+    document.querySelectorAll("#mission .card").forEach(card => {
+        const name = card.querySelector("h3").innerText;
+        const button = card.querySelector("button");
+
+        if (completed.includes(name)) {
+            button.innerText = "ทำภารกิจแล้ว ✓";
+            button.disabled = true;
+        }
+    });
+}
+
+// เปลี่ยนหน้าเว็บไซต์
+function showPage(page) {
+
+    const pages = ["home", "mission", "market", "dashboard"];
+
+    pages.forEach(id => {
+        document.getElementById(id).classList.add("hidden");
+    });
+
+    document.getElementById(page).classList.remove("hidden");
+
+    window.scrollTo(0, 0);
+
+    updatePoints();
+}
+
+// เพิ่มสินค้า
+function addProduct() {
+
+    const name = document.getElementById("productName").value.trim();
+    const price = document.getElementById("productPrice").value.trim();
+    const emoji = document.getElementById("productType").value;
+
+    if (!name || !price) {
+        alert("กรุณากรอกข้อมูลให้ครบ");
+        return;
+    }
+
+    const product = document.createElement("div");
+    product.className = "product";
+
+    const icon = document.createElement("div");
+    icon.className = "emoji";
+    icon.textContent = emoji;
+
+    const title = document.createElement("h3");
+    title.textContent = name;
+
+    const detail = document.createElement("p");
+    detail.textContent = "ราคา " + price;
+
+    product.append(icon, title, detail);
+
+    document.getElementById("productList").appendChild(product);
+
+    document.getElementById("productName").value = "";
+    document.getElementById("productPrice").value = "";
+
+    document.getElementById("message").innerText =
+        "เพิ่มประกาศเรียบร้อยแล้ว 🌱";
+}
+
+// เริ่มต้นระบบ
+updatePoints();
+restoreMissions();
+
+</script>
+
+</body>
+</html>
