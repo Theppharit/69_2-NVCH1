@@ -191,7 +191,7 @@
     <!-- NAVBAR HEADER -->
     <nav class="navbar navbar-expand-lg navbar-light sticky-top navbar-custom">
         <div class="container">
-            <a class="navbar-brand brand-logo" href="https://canva.link/pgakglakpijupdm">
+            <a class="navbar-brand brand-logo" href="#">
                 <i class="fa-solid fa-leaf text-success me-2"></i>EcoSwap
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
