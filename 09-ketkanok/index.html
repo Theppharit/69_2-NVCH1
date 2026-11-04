@@ -14,151 +14,314 @@
 
     <nav>
         <a href="#home">หน้าแรก</a>
-        <a href="#products">สิ่งของทั้งหมด</a>
+        <a href="#products">สิ่งของ</a>
         <a href="#add">ลงประกาศ</a>
         <a href="#about">เกี่ยวกับเรา</a>
-        <a href="#contact">ติดต่อเรา</a>
     </nav>
 
-    <button id="themeBtn" class="theme-btn">🌙</button>
+    <div class="header-actions">
+        <button id="themeBtn" class="icon-btn" title="เปลี่ยนธีม">🌙</button>
+        <button id="notificationBtn" class="icon-btn" title="การแจ้งเตือน">
+            🔔 <span id="notificationBadge" class="badge-count">0</span>
+        </button>
+        <button id="profileBtn" class="profile-mini" title="โปรไฟล์">👤</button>
+    </div>
 </header>
 
-<section class="hero" id="home">
-    <div class="hero-content">
-        <span class="tag">🌍 GREEN DIGITAL PROJECT</span>
-        <h1>ของที่คุณไม่ใช้<br>อาจมีค่า дляใครอีกคน</h1>
-        <p>ร่วมแบ่งปันสิ่งของเหลือใช้ ลดขยะ และสร้างโลกที่น่าอยู่ไปด้วยกัน</p>
-        <a href="#products" class="main-btn">เริ่มแบ่งปันเลย →</a>
-    </div>
-    <div class="hero-picture">🌳🌎🌱</div>
-</section>
-
-<section class="stats">
-    <div class="stat-box">
-        <h2 id="itemCount">0</h2>
-        <p>รายการสิ่งของ</p>
-    </div>
-    <div class="stat-box">
-        <h2>🌱</h2>
-        <p>ช่วยลดขยะ</p>
-    </div>
-    <div class="stat-box">
-        <h2 id="favoriteCount">0</h2>
-        <p>รายการโปรดของคุณ</p>
-    </div>
-</section>
-
-<section class="products section" id="products">
-    <div class="section-heading">
-        <div>
-            <span class="tag">SHARE & REUSE</span>
-            <h2>🌿 สิ่งของที่กำลังแบ่งปัน</h2>
-            <p>เลือกสิ่งของที่คุณสนใจและติดต่อผู้ลงประกาศได้เลย</p>
+<main>
+    <!-- หน้าแรก -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="tag">GREEN DIGITAL PROJECT</span>
+            <h1>แบ่งปันสิ่งของ<br>สร้างโลกที่ยั่งยืน 🌍</h1>
+            <p>ของที่คุณไม่ใช้ อาจเป็นประโยชน์สำหรับใครอีกคน</p>
+            <a href="#products" class="main-btn">เริ่มแบ่งปันเลย →</a>
         </div>
-    </div>
+        <div class="hero-picture">🌳🌎🌱</div>
+    </section>
 
-    <div class="search-area">
-        <input type="text" id="searchInput"
-            placeholder="🔍 ค้นหาสิ่งของที่ต้องการ...">
+    <!-- สถิติ -->
+    <section class="stats">
+        <div class="stat-box">
+            <h2 id="itemCount">0</h2>
+            <p>รายการสิ่งของ</p>
+        </div>
+        <div class="stat-box">
+            <h2 id="memberPoints">0</h2>
+            <p>คะแนนรักษ์โลกของฉัน</p>
+        </div>
+        <div class="stat-box">
+            <h2 id="favoriteCount">0</h2>
+            <p>รายการโปรด</p>
+        </div>
+    </section>
 
-        <select id="categoryFilter">
-            <option value="ทั้งหมด">ทุกหมวดหมู่</option>
-            <option value="เสื้อผ้า">เสื้อผ้า</option>
-            <option value="หนังสือ">หนังสือ</option>
-            <option value="กระเป๋า">กระเป๋า</option>
-            <option value="ของใช้ในบ้าน">ของใช้ในบ้าน</option>
-            <option value="อิเล็กทรอนิกส์">อิเล็กทรอนิกส์</option>
-            <option value="อื่นๆ">อื่นๆ</option>
-        </select>
-    </div>
+    <!-- โปรไฟล์สมาชิก -->
+    <section class="section profile-section" id="profile">
+        <div class="profile-card">
+            <div class="profile-avatar" id="profileAvatar">👤</div>
+            <div class="profile-info">
+                <span class="tag">MY PROFILE</span>
+                <h2 id="profileName">สมาชิก Green Share</h2>
+                <p id="profileEmail">สมาชิกผู้รักสิ่งแวดล้อม 🌱</p>
+                <p class="points-text">⭐ คะแนนสะสม: <strong id="profilePoints">0</strong> คะแนน</p>
+                <p id="memberLevel">🌱 สมาชิกใหม่</p>
+            </div>
+            <button id="editProfileBtn" class="secondary-btn">✏️ แก้ไขโปรไฟล์</button>
+        </div>
+    </section>
 
-    <div id="productList" class="product-grid"></div>
-    <p id="emptyMessage" class="empty-message" hidden>ไม่พบสิ่งของที่ค้นหา 🌱</p>
-</section>
+    <!-- ค้นหาสิ่งของ -->
+    <section class="section products" id="products">
+        <span class="tag">SHARE & REUSE</span>
+        <h2>🌿 สิ่งของที่กำลังแบ่งปัน</h2>
+        <p>เลือกสิ่งของที่คุณสนใจ แล้วติดต่อผู้แบ่งปันได้เลย</p>
 
-<section class="add-section section" id="add">
-    <div class="form-card">
-        <span class="tag">GIVE YOUR ITEMS A NEW LIFE</span>
-        <h2>➕ ลงประกาศแบ่งปันสิ่งของ</h2>
-        <p>มีสิ่งของที่ไม่ได้ใช้แล้วใช่ไหม? ส่งต่อให้คนที่ต้องการได้เลย</p>
+        <div class="search-area">
+            <input type="text" id="searchInput"
+                placeholder="🔍 ค้นหาชื่อสิ่งของ...">
 
-        <form id="addForm">
-            <label>ชื่อสิ่งของ</label>
-            <input id="itemName" type="text" placeholder="เช่น เสื้อยืดสีเขียว" required>
-
-            <label>หมวดหมู่</label>
-            <select id="itemCategory" required>
-                <option value="">เลือกหมวดหมู่</option>
-                <option>เสื้อผ้า</option>
-                <option>หนังสือ</option>
-                <option>กระเป๋า</option>
-                <option>ของใช้ในบ้าน</option>
-                <option>อิเล็กทรอนิกส์</option>
-                <option>อื่นๆ</option>
+            <select id="categoryFilter">
+                <option value="ทั้งหมด">ทุกหมวดหมู่</option>
+                <option value="เสื้อผ้า">เสื้อผ้า</option>
+                <option value="หนังสือ">หนังสือ</option>
+                <option value="กระเป๋า">กระเป๋า</option>
+                <option value="ของใช้ในบ้าน">ของใช้ในบ้าน</option>
+                <option value="อิเล็กทรอนิกส์">อิเล็กทรอนิกส์</option>
+                <option value="อื่นๆ">อื่นๆ</option>
             </select>
 
-            <label>รายละเอียดสิ่งของ</label>
-            <textarea id="itemDescription" placeholder="อธิบายสภาพและรายละเอียดสิ่งของ" required></textarea>
-
-            <label>สถานที่นัดรับ</label>
-            <input id="itemLocation" type="text" placeholder="เช่น นครราชสีมา" required>
-
-            <label>ช่องทางติดต่อ</label>
-            <input id="itemContact" type="text" placeholder="เบอร์โทรหรือ Line ID" required>
-
-            <button type="submit" class="main-btn full-btn">ลงประกาศแบ่งปัน 🌱</button>
-        </form>
-    </div>
-</section>
-
-<section class="how section">
-    <span class="tag">HOW IT WORKS</span>
-    <h2>วิธีใช้งาน Green Share</h2>
-
-    <div class="steps">
-        <div class="step-card">
-            <div class="step-icon">📦</div>
-            <h3>1. ลงประกาศ</h3>
-            <p>นำสิ่งของที่ไม่ได้ใช้แล้วมาลงประกาศ</p>
+            <select id="sortFilter">
+                <option value="newest">รายการล่าสุด</option>
+                <option value="oldest">รายการเก่าสุด</option>
+                <option value="name">เรียงตามชื่อ</option>
+            </select>
         </div>
-        <div class="step-card">
-            <div class="step-icon">🔎</div>
-            <h3>2. ค้นหาสิ่งของ</h3>
-            <p>เลือกดูสิ่งของที่ตรงกับความต้องการ</p>
-        </div>
-        <div class="step-card">
-            <div class="step-icon">🤝</div>
-            <h3>3. ติดต่อรับของ</h3>
-            <p>ติดต่อผู้แบ่งปันเพื่อนัดรับสิ่งของ</p>
-        </div>
-    </div>
-</section>
 
-<section class="about section" id="about">
-    <div>
-        <span class="tag">ABOUT GREEN SHARE</span>
-        <h2>แบ่งปันวันนี้ เพื่อโลกที่ดีกว่า 🌎</h2>
-        <p>
-            Green Share คือเว็บไซต์ที่เป็นสื่อกลางในการแบ่งปัน
-            และส่งต่อสิ่งของเหลือใช้ เพื่อให้สิ่งของที่ยังมีประโยชน์
-            ได้กลับมาใช้งานอีกครั้ง ช่วยลดปริมาณขยะ
-            ส่งเสริมการใช้ทรัพยากรอย่างคุ้มค่า และสร้างสังคมแห่งการแบ่งปัน
+        <div class="filter-buttons">
+            <button id="allBtn" class="filter-btn active">📦 ทั้งหมด</button>
+            <button id="favoriteBtn" class="filter-btn">❤️ รายการโปรด</button>
+        </div>
+
+        <div id="productList" class="product-grid"></div>
+        <p id="emptyMessage" class="empty-message" hidden>
+            ไม่พบสิ่งของที่ค้นหา 🌱
         </p>
-    </div>
-    <div class="about-icon">🌱♻️🌍</div>
-</section>
+    </section>
 
-<section class="contact section" id="contact">
-    <h2>มาร่วมเป็นส่วนหนึ่งกับเรา</h2>
-    <p>ทุกการแบ่งปันเล็ก ๆ สามารถสร้างความเปลี่ยนแปลงให้โลกได้</p>
-    <a href="#add" class="main-btn">ร่วมแบ่งปันเลย</a>
-</section>
+    <!-- ลงประกาศ -->
+    <section class="add-section section" id="add">
+        <div class="form-card">
+            <span class="tag">GIVE YOUR ITEMS A NEW LIFE</span>
+            <h2>➕ ลงประกาศสิ่งของ</h2>
+            <p>แบ่งปันสิ่งของที่ไม่ได้ใช้ให้กลับมามีประโยชน์อีกครั้ง</p>
+
+            <form id="addForm">
+                <label>รูปภาพสิ่งของ</label>
+                <input type="file" id="itemImage"
+                    accept="image/png,image/jpeg,image/webp">
+                <div id="imagePreview" class="image-preview">
+                    <span>🖼️ ตัวอย่างรูปภาพจะแสดงที่นี่</span>
+                </div>
+
+                <label>ชื่อสิ่งของ</label>
+                <input id="itemName" type="text"
+                    placeholder="เช่น เสื้อยืดสีเขียว" required>
+
+                <label>หมวดหมู่</label>
+                <select id="itemCategory" required>
+                    <option value="">เลือกหมวดหมู่</option>
+                    <option>เสื้อผ้า</option>
+                    <option>หนังสือ</option>
+                    <option>กระเป๋า</option>
+                    <option>ของใช้ในบ้าน</option>
+                    <option>อิเล็กทรอนิกส์</option>
+                    <option>อื่นๆ</option>
+                </select>
+
+                <label>รายละเอียดสิ่งของ</label>
+                <textarea id="itemDescription"
+                    placeholder="บอกรายละเอียดและสภาพสิ่งของ..." required></textarea>
+
+                <label>สถานที่นัดรับ</label>
+                <input id="itemLocation" type="text"
+                    placeholder="เช่น นครราชสีมา" required>
+
+                <label>ช่องทางติดต่อ</label>
+                <input id="itemContact" type="text"
+                    placeholder="เบอร์โทรหรือ Line ID" required>
+
+                <button type="submit" class="main-btn full-btn">
+                    ลงประกาศและรับคะแนน +10 ⭐
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- คะแนนรักษ์โลก -->
+    <section class="section points-section" id="points">
+        <div class="points-card">
+            <span class="tag">GREEN REWARD</span>
+            <h2>🌱 คะแนนสะสมรักษ์โลก</h2>
+            <p>ทุกการแบ่งปันช่วยสร้างสังคมที่น่าอยู่</p>
+            <div class="points-number">
+                <span id="rewardPoints">0</span>
+                <small>คะแนน</small>
+            </div>
+            <div class="progress-track">
+                <div id="pointsProgress" class="progress-fill"></div>
+            </div>
+            <p id="pointsMessage">ลงประกาศสิ่งของเพื่อเริ่มสะสมคะแนน</p>
+            <div class="reward-rules">
+                <div>📦 ลงประกาศสิ่งของ <strong>+10 คะแนน</strong></div>
+                <div>🤝 ส่งต่อสิ่งของสำเร็จ <strong>+20 คะแนน</strong></div>
+            </div>
+            <button id="completeShareBtn" class="secondary-btn">
+                บันทึกการส่งต่อสำเร็จ +20 คะแนน
+            </button>
+            <small class="note">* ระบบคะแนนนี้เป็นระบบจำลองสำหรับเว็บไซต์ต้นแบบ</small>
+        </div>
+    </section>
+
+    <!-- ระบบแชต -->
+    <section class="section chat-section" id="chat">
+        <div class="chat-card">
+            <span class="tag">COMMUNICATION</span>
+            <h2>💬 พื้นที่พูดคุย</h2>
+            <p>เลือกสิ่งของจากรายการเพื่อเริ่มสนทนากับผู้แบ่งปัน</p>
+
+            <label>เลือกสิ่งของ</label>
+            <select id="chatItemSelect">
+                <option value="">เลือกสิ่งของที่ต้องการพูดคุย</option>
+            </select>
+
+            <div class="chat-window">
+                <div id="chatMessages" class="chat-messages">
+                    <p class="chat-empty">ยังไม่มีข้อความ เริ่มพูดคุยได้เลย 💚</p>
+                </div>
+                <form id="chatForm" class="chat-form">
+                    <input id="chatInput" type="text"
+                        placeholder="พิมพ์ข้อความ..." autocomplete="off" required>
+                    <button type="submit" class="main-btn">ส่ง</button>
+                </form>
+            </div>
+            <small class="note">ข้อความนี้เป็นการสนทนาจำลองภายในเบราว์เซอร์</small>
+        </div>
+    </section>
+
+    <!-- รีวิว -->
+    <section class="section review-section" id="reviews">
+        <div class="review-card">
+            <span class="tag">COMMUNITY FEEDBACK</span>
+            <h2>⭐ รีวิวและให้คะแนน</h2>
+            <p>แบ่งปันประสบการณ์เพื่อสร้างความน่าเชื่อถือให้ชุมชน</p>
+
+            <form id="reviewForm">
+                <label>เลือกสิ่งของที่ต้องการรีวิว</label>
+                <select id="reviewItemSelect" required>
+                    <option value="">เลือกสิ่งของ</option>
+                </select>
+
+                <label>ให้คะแนน</label>
+                <div class="star-picker" id="starPicker">
+                    <button type="button" data-star="1">★</button>
+                    <button type="button" data-star="2">★</button>
+                    <button type="button" data-star="3">★</button>
+                    <button type="button" data-star="4">★</button>
+                    <button type="button" data-star="5">★</button>
+                </div>
+
+                <label>เขียนรีวิว</label>
+                <textarea id="reviewText"
+                    placeholder="เล่าประสบการณ์ของคุณ..." required></textarea>
+
+                <button type="submit" class="main-btn full-btn">
+                    ส่งรีวิว
+                </button>
+            </form>
+
+            <div id="reviewList" class="review-list"></div>
+        </div>
+    </section>
+
+    <!-- วิธีใช้งาน -->
+    <section class="section how">
+        <span class="tag">HOW IT WORKS</span>
+        <h2>วิธีใช้งาน Green Share</h2>
+        <div class="steps">
+            <div class="step-card">
+                <div class="step-icon">📦</div>
+                <h3>1. ลงประกาศ</h3>
+                <p>นำสิ่งของที่ไม่ได้ใช้แล้วมาลงประกาศ</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">🔎</div>
+                <h3>2. ค้นหาสิ่งของ</h3>
+                <p>เลือกดูสิ่งของที่ตรงกับความต้องการ</p>
+            </div>
+            <div class="step-card">
+                <div class="step-icon">🤝</div>
+                <h3>3. ติดต่อรับของ</h3>
+                <p>พูดคุยและนัดรับสิ่งของ</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- เกี่ยวกับเรา -->
+    <section class="section about" id="about">
+        <div>
+            <span class="tag">ABOUT GREEN SHARE</span>
+            <h2>แบ่งปันวันนี้ เพื่อโลกที่ดีกว่า 🌎</h2>
+            <p>
+                Green Share เป็นเว็บไซต์สำหรับแบ่งปันและส่งต่อสิ่งของเหลือใช้
+                เพื่อให้สิ่งของที่ยังมีประโยชน์ได้กลับมาใช้งานอีกครั้ง
+                ช่วยลดขยะ ส่งเสริมการใช้ซ้ำ และใช้ทรัพยากรอย่างคุ้มค่า
+            </p>
+        </div>
+        <div class="about-icon">🌱♻️🌍</div>
+    </section>
+</main>
 
 <footer>
     <h2>🌱 Green Share</h2>
     <p>ของที่คุณไม่ใช้ อาจเป็นประโยชน์สำหรับใครอีกคน</p>
     <p>© 2026 Green Share | เว็บไซต์เพื่อสิ่งแวดล้อม</p>
 </footer>
+
+<!-- หน้าต่างแก้ไขโปรไฟล์ -->
+<div id="profileModal" class="modal">
+    <div class="modal-content">
+        <button class="close-btn" data-close="profileModal">✕</button>
+        <h2>👤 แก้ไขโปรไฟล์</h2>
+        <form id="profileForm">
+            <label>ชื่อสมาชิก</label>
+            <input id="editName" type="text" required>
+            <label>อีเมล</label>
+            <input id="editEmail" type="email" placeholder="example@email.com">
+            <button class="main-btn full-btn" type="submit">บันทึกข้อมูล</button>
+        </form>
+    </div>
+</div>
+
+<!-- หน้าต่างแจ้งเตือน -->
+<div id="notificationModal" class="modal">
+    <div class="modal-content">
+        <button class="close-btn" data-close="notificationModal">✕</button>
+        <h2>🔔 ศูนย์การแจ้งเตือน</h2>
+        <div id="notificationList" class="notification-list"></div>
+        <button id="clearNotifications" class="secondary-btn full-btn">
+            ล้างการแจ้งเตือน
+        </button>
+    </div>
+</div>
+
+<!-- หน้าต่างรายละเอียด -->
+<div id="detailModal" class="modal">
+    <div class="modal-content">
+        <button class="close-btn" data-close="detailModal">✕</button>
+        <div id="detailContent"></div>
+    </div>
+</div>
 
 <div id="toast" class="toast"></div>
 <button id="topBtn" class="top-btn" aria-label="กลับขึ้นด้านบน">↑</button>
