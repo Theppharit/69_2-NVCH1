@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Share</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- เมนูเว็บไซต์ -->
+    <header>
+        <div class="logo">🌱 Green Share</div>
+        <nav>
+            <a href="#home">หน้าแรก</a>
+            <a href="#products">สิ่งของทั้งหมด</a>
+            <a href="#about">เกี่ยวกับเรา</a>
+            <a href="#contact">ติดต่อเรา</a>
+        </nav>
+    </header>
+
+    <!-- หน้าแรก -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>แบ่งปันสิ่งของ<br>
+                <span>สร้างโลกที่ยั่งยืน</span>
+            </h1>
+            <p>
+                ของที่คุณไม่ใช้ อาจเป็นประโยชน์สำหรับใครอีกคน
+                ร่วมกันลดขยะและส่งต่อสิ่งของให้เกิดประโยชน์
+            </p>
+            <a href="#products" class="btn">เลือกชมสิ่งของ</a>
+        </div>
+        <div class="hero-image">🌍🌱</div>
+    </section>
+
+    <!-- รายการสิ่งของ -->
+    <section class="products" id="products">
+        <h2>สิ่งของพร้อมส่งต่อ ♻️</h2>
+        <p>เลือกสิ่งของที่คุณสนใจได้เลย</p>
+
+        <div class="product-grid">
+
+            <div class="card">
+                <div class="product-img">👕</div>
+                <h3>เสื้อผ้ามือสอง</h3>
+                <p>เสื้อผ้าสภาพดี พร้อมส่งต่อ</p>
+                <button onclick="contactItem('เสื้อผ้ามือสอง')">
+                    ติดต่อรับสิ่งของ
+                </button>
+            </div>
+
+            <div class="card">
+                <div class="product-img">📚</div>
+                <h3>หนังสือมือสอง</h3>
+                <p>หนังสืออ่านเล่นและหนังสือเรียน</p>
+                <button onclick="contactItem('หนังสือมือสอง')">
+                    ติดต่อรับสิ่งของ
+                </button>
+            </div>
+
+            <div class="card">
+                <div class="product-img">👜</div>
+                <h3>กระเป๋าผ้า</h3>
+                <p>กระเป๋าผ้าสำหรับใช้ในชีวิตประจำวัน</p>
+                <button onclick="contactItem('กระเป๋าผ้า')">
+                    ติดต่อรับสิ่งของ
+                </button>
+            </div>
+
+            <div class="card">
+                <div class="product-img">💡</div>
+                <h3>โคมไฟตั้งโต๊ะ</h3>
+                <p>อุปกรณ์ที่ยังสามารถใช้งานได้</p>
+                <button onclick="contactItem('โคมไฟตั้งโต๊ะ')">
+                    ติดต่อรับสิ่งของ
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- วิธีใช้งาน -->
+    <section class="how">
+        <h2>วิธีการใช้งาน</h2>
+
+        <div class="steps">
+            <div class="step">
+                <h3>📸 1. ลงประกาศ</h3>
+                <p>นำสิ่งของที่ไม่ได้ใช้มาแบ่งปัน</p>
+            </div>
+
+            <div class="step">
+                <h3>🔎 2. เลือกสิ่งของ</h3>
+                <p>ค้นหาสิ่งของที่ต้องการ</p>
+            </div>
+
+            <div class="step">
+                <h3>🤝 3. ติดต่อรับของ</h3>
+                <p>ติดต่อเจ้าของเพื่อรับสิ่งของ</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- เกี่ยวกับเรา -->
+    <section class="about" id="about">
+        <h2>เกี่ยวกับ Green Share 🌱</h2>
+        <p>
+            Green Share คือเว็บไซต์สำหรับแบ่งปันและส่งต่อสิ่งของเหลือใช้
+            เพื่อช่วยลดปริมาณขยะ ลดการใช้ทรัพยากรอย่างสิ้นเปลือง
+            และสร้างสังคมแห่งการแบ่งปัน
+        </p>
+    </section>
+
+    <!-- ติดต่อเรา -->
+    <section class="contact" id="contact">
+        <h2>ติดต่อเรา</h2>
+        <p>ร่วมเป็นส่วนหนึ่งในการรักษาสิ่งแวดล้อม</p>
+        <p>Facebook: Green Share</p>
+        <p>Email: greenshare@gmail.com</p>
+    </section>
+
+    <!-- ส่วนท้าย -->
+    <footer>
+        <h3>🌱 Green Share</h3>
+        <p>ของที่คุณไม่ใช้ อาจเป็นประโยชน์สำหรับใครอีกคน</p>
+        <p>© 2026 Green Share</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
